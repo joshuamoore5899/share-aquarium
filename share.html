@@ -7,7 +7,7 @@
     <title>Share Aquarium</title>
     <link rel="icon" type="image/x-icon" href="/images/fish.png">
   </head>
-  <body>
+  <body style="min-height:100vh">
     <header class="flex-basics class="full-width"">
       <h1>Share Aquarium</h1>
       <nav class="flex-basics full-width">
@@ -44,10 +44,9 @@
           <input type="file" id="myfile" name="myfile" multiple required>
         </section>
         <section class="full-width form-sec">
-          <label class="bold" for="description">Notes/Description about your aquarium:</label><br>
+          <label class="bold" for="description">Notes/Description about your aquarium (describe as much or as little as you would like):</label><br>
           <textarea id="description" name="description" rows="8" cols="30"></textarea>
         </section>
-
         <section class="full-width form-sec">
           <label class="bold">What fish do you have in your tank? Select all that apply: (optional)</label><br>
           <section id="fish-selection">
@@ -60,12 +59,40 @@
               <label class="type-of-fish" for="guppies">Guppies</label>
             </div>
             <div>
+              <input type="checkbox" id="Mollies" name="Mollies" value="Mollies">
+              <label class="type-of-fish" for="Mollies">Mollies</label>
+            </div>
+            <div>
+              <input type="checkbox" id="Platies" name="Platies" value="Platies">
+              <label class="type-of-fish" for="Platies">Platies</label>
+            </div>
+            <div>
               <input type="checkbox" id="goldfish" name="goldfish" value="goldfish">
               <label class="type-of-fish" for="goldfish">Goldfish</label>
             </div>
             <div>
-              <input type="checkbox" id="cichlids" name="cichlids" value="cichlids">
-              <label class="type-of-fish" for="cichlids">Cichlids</label>
+              <input type="checkbox" id="africancichlids" name="africancichlids" value="africancichlids">
+              <label class="type-of-fish" for="africancichlids">African Cichlids</label>
+            </div>
+            <div>
+              <input type="checkbox" id="americancichlids" name="americancichlids" value="americancichlids">
+              <label class="type-of-fish" for="americancichlids">American Cichlids</label>
+            </div>
+            <div>
+              <input type="checkbox" id="tetras" name="tetras" value="tetras">
+              <label class="type-of-fish" for="tetras">Tetras</label>
+            </div>
+            <div>
+              <input type="checkbox" id="barbs" name="barbs" value="barbs">
+              <label class="type-of-fish" for="barbs">Barbs</label>
+            </div>
+            <div>
+              <input type="checkbox" id="catfish" name="catfish" value="catfish">
+              <label class="type-of-fish" for="catfish">Catfish</label>
+            </div>
+            <div>
+              <input type="checkbox" id="" name="" value="">
+              <label class="type-of-fish" for=""></label>
             </div>
             <div>
               <input type="checkbox" id="other" name="other" value="other">
@@ -78,6 +105,7 @@
       </form>
 
     </section>
+
 
   </body>
 </html>
