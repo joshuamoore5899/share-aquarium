@@ -11,6 +11,7 @@ a {
 
 body {
   background: linear-gradient(to bottom, #08f5ec 0%, #070dfa 100%);
+  min-height:100vh;
 }
 
 .top-bottom-margins {
@@ -210,12 +211,5 @@ input[type="checkbox"] {
 @media screen and (max-width: 750px) {
   .regular-text {
     font-size: 2rem;
-  }
-  .btn {
-    background: gray;
-    border: 1px solid black;
-  }
-  .share-btn:hover {
-    background: black;
   }
 }
