@@ -27,13 +27,51 @@ app.get('/', async (req, res)=> {
   // res.sendFile(__dirname + '/index.html');
 })
 
+//liking a post
+app.put('/addLike', async (req, res)=> {
+  try {
+    const aquarium = await Aquarium.findOne({_id:req.body.itemID}).lean();
+    let numberOfLikes = aquarium.likes + 1;
+    await Aquarium.findOneAndUpdate({_id:req.body.itemID},{
+      likes: numberOfLikes
+    })
+    res.json('Added Like');
+  }
+  catch(err) {
+    console.error(err);
+  }
+})
+
+//inspired by a post
+app.put('/addInspired', async (req, res)=> {
+  try {
+    const aquarium = await Aquarium.findOne({_id:req.body.itemID}).lean();
+    let numberOfInspired = aquarium.inspired + 1;
+    await Aquarium.findOneAndUpdate({_id:req.body.itemID},{
+      inspired: numberOfInspired
+    })
+    res.json('Added Like');
+  }
+  catch(err) {
+    console.error(err);
+  }
+})
+
 
 app.post('/shareAquarium', async (req, res)=> {
   try {
+    let tankSize;
+    if (Number(req.body.quantity[0]) >= Number(req.body.quantity[1])) {
+      tankSize = `${req.body.quantity[0]} gallons`
+    }
+    else {
+      tankSize = `${req.body.quantity[1]} liters`
+    }
     const aquarium = await Aquarium.create({
       name: req.body.fname,
       waterType: req.body.waterType,
-      tankSize: req.body.quantity[0],
+      tankSize: tankSize,
+      images: req.body.myFile,
       description: req.body.description,
       fish: req.body.fish,
       likes: 0,

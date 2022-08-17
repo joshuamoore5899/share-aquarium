@@ -3,6 +3,7 @@
   padding: 0;
   font-size: 10px;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 a {
@@ -34,9 +35,14 @@ body {
   width: 100%;
 }
 
-.regular-text {
+.bigger-text {
   font-size: 2.5rem;
   color: black;
+}
+
+.regular-text {
+  font-size: 1.8rem;
+  color: gray;
 }
 
 .displays {
@@ -62,6 +68,21 @@ body {
   padding: 15px;
   -moz-box-shadow: 0 0 10px 2px gray;
   -webkit-box-shadow: 0 0 10px 2px gray;
+}
+
+i {
+  cursor: pointer;
+  color: gray;
+  margin-left: 10px;
+}
+
+.icon-text {
+  font-size: 1.5rem;
+}
+
+#likes {
+  width: 90%;
+  justify-content: center;
 }
 
 .btn {
@@ -96,7 +117,7 @@ nav a:hover {
 #myBtn {
   display: none; /* Hidden by default */
   position: fixed; /* Fixed/sticky position */
-  bottom: 100px; /* Place the button at the bottom of the page */
+  bottom: 110px; /* Place the button at the bottom of the page */
   right: 10px; /* Place the button 30px from the right */
   z-index: 99; /* Make sure it does not overlap */
 
@@ -174,6 +195,12 @@ form h1 {
 
 textarea {
   font-size: 1.5rem;
+  width: 90%;
+  max-width: 400px;
+}
+
+.upper {
+  text-transform: uppercase;
 }
 
 .bold {
@@ -197,7 +224,13 @@ textarea {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+  -moz-box-shadow: 0 0 10px 2px gray;
+  -webkit-box-shadow: 0 0 10px 2px gray;
 }
+
+
+
+
 
 #submit-button {
   align-self: center;
@@ -209,7 +242,10 @@ input[type="checkbox"] {
 }
 
 @media screen and (max-width: 750px) {
-  .regular-text {
+  .bigger-text {
     font-size: 2rem;
+  }
+  .regular-text {
+    font-size: 1.8rem;
   }
 }

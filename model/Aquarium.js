@@ -4,7 +4,8 @@ const Schema = mongoose.Schema;
 const aquariumSchema = new Schema({
   name: String,
   waterType: String,
-  tankSize: Number,
+  tankSize: String,
+  images: Buffer,
   description: String,
   fish: Array,
   likes: Number,
