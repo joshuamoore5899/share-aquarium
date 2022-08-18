@@ -70,6 +70,40 @@ body {
   -webkit-box-shadow: 0 0 10px 2px gray;
 }
 
+#sort-by {
+  display: flex;
+  justify-content: center;
+}
+
+#sort-by h3 {
+  font-size: 1.2rem;
+}
+
+#sort-items {
+  display: flex;
+  width: 95%;
+  max-width: 700px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.sort-items {
+  font-size: 1.2rem;
+  padding-right: 10px;
+  padding-left: 10px;
+  border-left: 1px solid black;
+  cursor: pointer;
+}
+
+.sort-items:hover {
+  font-weight: bold;
+}
+
+#first-sort {
+  border-left: none;
+}
+
+
 i {
   cursor: pointer;
   color: gray;

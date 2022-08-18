@@ -25,6 +25,20 @@
 
     <a class="btn share-btn" href="/share.html"><button class="btn share-btn">SHARE YOUR AQUARIUM</button></a>
 
+    <section id="sort-by" class="full-width">
+
+      <section id="sort-items">
+        <h3>Sort By: </h3>
+        <span id="first-sort" class="sort-items" data-id="new">New</span>
+        <span class="sort-items" data-id="old">Old</span>
+        <span class="sort-items" data-id="liked">Liked</span>
+        <span class="sort-items" data-id="inspiring">Inspiring</span>
+        <span class="sort-items" data-id="size-big">Tank Size Big</span>
+        <span class="sort-items" data-id="size-small">Tank Size Small</span>
+      </section>
+    </section>
+
+
     <% for(let i=0; i < aquariums.length; i++) {%>
       <section class="flex-basics bigger-text displays">
         <div class="display-container" data-id='<%=aquariums[i]._id%>'>
@@ -46,7 +60,7 @@
             <hr class="displays-items">
           </div>
           <div class="full-width displays-divs">
-            <h3 class="regular-text displays-items">Tank Size: <span class="regular-text displays-items"><%= aquariums[i].tankSize %></span></h3>
+            <h3 class="regular-text displays-items">Tank: <span class="regular-text displays-items" style="text-transform:uppercase"><%= aquariums[i].tankSize %> <%= aquariums[i].waterType %> water</span></h3>
           </div>
           <div class="full-width displays-divs">
             <h3 class="regular-text displays-items"><span class="regular-text displays-items"><%= aquariums[i].description %></span></h3>

@@ -2,6 +2,7 @@
 const mybutton = document.getElementById("myBtn");
 const likes = document.querySelectorAll('.like-btn');
 const inspired = document.querySelectorAll('.inspired-btn');
+const sort = document.querySelectorAll('.sort-items');
 
 
 
@@ -20,6 +21,22 @@ function scrollFunction() {
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+//sort event listeners
+Array.from(sort).forEach((el)=> {
+  el.addEventListener('click', sortList);
+})
+
+//sort list get request
+async function sortList() {
+  const itemID = this.dataset.id;
+  try {
+    window.location.replace(`/${itemID}`);
+  }
+  catch (err) {
+    console.error(err);
+  }
 }
 
 //like button event listeners

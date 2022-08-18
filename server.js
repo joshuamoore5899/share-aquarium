@@ -21,11 +21,38 @@ app.use(express.json())
 
 
 
-app.get('/', async (req, res)=> {
-  const aquariums = await Aquarium.find().sort({dateCreated: 'desc'}).lean();
-  res.render('index.ejs', { aquariums: aquariums })
-  // res.sendFile(__dirname + '/index.html');
+app.get('/:id?', async (req, res)=> {
+  let aquariums;
+  if (req.params.id === 'old') {
+    aquariums = await Aquarium.find().sort({dateCreated: 'asc'}).lean();
+    res.render('index.ejs', { aquariums: aquariums });
+  }
+  else if (req.params.id === 'new') {
+    aquariums = await Aquarium.find().sort({dateCreated: 'desc'}).lean();
+    res.render('index.ejs', { aquariums: aquariums });
+  }
+  else if (req.params.id === 'liked') {
+    aquariums = await Aquarium.find().sort({likes: 'desc'}).lean();
+    res.render('index.ejs', { aquariums: aquariums });
+  }
+  else if (req.params.id === 'inspiring') {
+    aquariums = await Aquarium.find().sort({inspired: 'desc'}).lean();
+    res.render('index.ejs', { aquariums: aquariums });
+  }
+  else if (req.params.id === 'size-big') {
+    aquariums = await Aquarium.find().sort({tankSize: 'desc'}).lean();
+    res.render('index.ejs', { aquariums: aquariums });
+  }
+  else if (req.params.id === 'size-small') {
+    aquariums = await Aquarium.find().sort({tankSize: 'asc'}).lean();
+    res.render('index.ejs', { aquariums: aquariums });
+  }
+  else {
+    aquariums = await Aquarium.find().sort({dateCreated: 'desc'}).lean();
+    res.render('index.ejs', {aquariums: aquariums});
+  }
 })
+
 
 //liking a post
 app.put('/addLike', async (req, res)=> {
