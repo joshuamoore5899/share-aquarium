@@ -40,11 +40,11 @@ app.get('/:id?', async (req, res)=> {
     res.render('index.ejs', { aquariums: aquariums });
   }
   else if (req.params.id === 'size-big') {
-    aquariums = await Aquarium.find().sort({tankSize: 'desc'}).lean();
+    aquariums = await Aquarium.find().sort({trueSize: 'desc'}).lean();
     res.render('index.ejs', { aquariums: aquariums });
   }
   else if (req.params.id === 'size-small') {
-    aquariums = await Aquarium.find().sort({tankSize: 'asc'}).lean();
+    aquariums = await Aquarium.find().sort({trueSize: 'asc'}).lean();
     res.render('index.ejs', { aquariums: aquariums });
   }
   else {
@@ -88,16 +88,26 @@ app.put('/addInspired', async (req, res)=> {
 app.post('/shareAquarium', async (req, res)=> {
   try {
     let tankSize;
-    if (Number(req.body.quantity[0]) >= Number(req.body.quantity[1])) {
-      tankSize = `${req.body.quantity[0]} gallons`
+    let measurementType;
+    let trueSize;
+    let gallonsToLiters = Number(req.body.quantity[0]) * 3.78541;
+    let liters = Number(req.body.quantity[1]);
+    if (gallonsToLiters >= liters) {
+      tankSize = Number(req.body.quantity[0]);
+      measurementType = 'gallons';
+      trueSize = Number(req.body.quantity[0]) * 3.78541;
     }
     else {
-      tankSize = `${req.body.quantity[1]} liters`
+      tankSize = Number(req.body.quantity[1]);
+      measurementType = 'liters';
+      trueSize = Number(req.body.quantity[1]);
     }
     const aquarium = await Aquarium.create({
       name: req.body.fname,
       waterType: req.body.waterType,
       tankSize: tankSize,
+      trueSize: trueSize,
+      measurementType: measurementType,
       images: req.body.myFile,
       description: req.body.description,
       fish: req.body.fish,
