@@ -31,6 +31,7 @@ Array.from(sort).forEach((el)=> {
 //sort list get request
 async function sortList() {
   const itemID = this.dataset.id;
+  console.log(itemID)
   try {
     window.location.replace(`/${itemID}`);
   }
