@@ -1,4 +1,4 @@
-const Aquarium = require('../model/Aquarium')
+const Aquarium = require('../models/Aquarium')
 
 module.exports = {
 

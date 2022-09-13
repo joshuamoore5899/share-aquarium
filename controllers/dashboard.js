@@ -1,6 +1,13 @@
 const Aquarium = require('../models/Aquarium');
 
 module.exports = {
+  getDashboard: (req, res) => {
+    try {
+      res.render('dashboard.ejs')
+    } catch (e) {
+      console.error(e);
+    }
+  },
   shareAquarium: async (req, res)=> {
     try {
       let tankSize;
@@ -29,8 +36,9 @@ module.exports = {
         fish: req.body.fish,
         likes: 0,
         inspired: 0,
+        user: req.user.id,
       });
-      res.redirect('/');
+      res.redirect('/dashboard');
     } catch (err) {
       console.error(err)
     }
