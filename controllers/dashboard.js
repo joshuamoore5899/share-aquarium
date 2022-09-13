@@ -1,9 +1,10 @@
 const Aquarium = require('../models/Aquarium');
 
 module.exports = {
-  getDashboard: (req, res) => {
+  getDashboard: async (req, res) => {
     try {
-      res.render('dashboard.ejs')
+      const aquariums = await Aquarium.find({ user: req.user.id });
+      res.render('dashboard.ejs', { aquariums: aquariums, user: req.user})
     } catch (e) {
       console.error(e);
     }
