@@ -154,7 +154,6 @@ nav a:hover {
   bottom: 110px; /* Place the button at the bottom of the page */
   right: 10px; /* Place the button 30px from the right */
   z-index: 99; /* Make sure it does not overlap */
-
 }
 
 
@@ -202,7 +201,7 @@ header h1 {
 
 
 #share-form,
-.edit-form {
+.edit-section {
   padding: 25px;
   width: 90%;
   max-width: 700px;
@@ -255,8 +254,8 @@ textarea {
   flex-wrap: wrap;
 }
 
-#share-form,
-.edit-form {
+#share-formm
+.edit-section {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
@@ -270,18 +269,24 @@ textarea {
 }
 
 .edit-section {
-  z-index: 5;
+  margin: 25px 0;
 }
 
-.edit-form {
-
+.edit-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
+.minimize {
+  align-self: baseline !important;
+}
 
-
-#submit-button {
+.submit-button {
   align-self: center;
   padding: 3px 5px;
+  cursor: pointer;
 }
 
 input[type="checkbox"] {

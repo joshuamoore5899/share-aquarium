@@ -20,7 +20,7 @@ function showEdit() {
 }
 
 function closeEdit() {
-  const aquarium = this.parentNode.parentNode.parentNode.querySelector('.edit-section');
+  const aquarium = this.parentNode.parentNode.parentNode.parentNode.querySelector('.edit-section');
   try {
     aquarium.classList.add('hidden');
   }
