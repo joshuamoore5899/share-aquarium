@@ -12,5 +12,7 @@ router.get("/logout", authController.logout);
 router.post("/login", authController.postLogin);
 router.post("/signup", authController.postSignup);
 router.post('/shareAquarium', ensureAuth, dashboardController.shareAquarium);
+router.delete('/deleteAquarium/:id', dashboardController.deleteAquarium);
+// router.put('/editAquarium/:id', dashboardController.editAquarium);
 
 module.exports = router

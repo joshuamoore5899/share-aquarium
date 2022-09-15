@@ -200,8 +200,9 @@ header h1 {
   word-spacing: 1rem;
 }
 
-form,
-#share-form {
+
+#share-form,
+.edit-form {
   padding: 25px;
   width: 90%;
   max-width: 700px;
@@ -254,15 +255,27 @@ textarea {
   flex-wrap: wrap;
 }
 
-#share-form {
+#share-form,
+.edit-form {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
   -moz-box-shadow: 0 0 10px 2px gray;
   -webkit-box-shadow: 0 0 10px 2px gray;
+  box-shadow: 0 0 10px 2px gray;
 }
 
+.hidden {
+  display: none;
+}
 
+.edit-section {
+  z-index: 5;
+}
+
+.edit-form {
+
+}
 
 
 
@@ -273,6 +286,34 @@ textarea {
 
 input[type="checkbox"] {
     cursor: pointer;
+}
+
+.fa-trash,
+.fa-edit {
+  color: blue;
+  padding: 5px;
+  cursor: pointer;
+  align-self: flex-end;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.fa-trash:hover,
+.fa-edit:hover {
+  background: lightgray;
+  border-color: darkgray;
+  color: steelblue;
+}
+
+.fa-trash:active,
+.fa-edit:active {
+  color: darkgreen;
+  border-color: dodgerblue;
+}
+
+.icon-form {
+  display: flex;
+  justify-content: flex-end;
 }
 
 @media screen and (max-width: 750px) {

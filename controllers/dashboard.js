@@ -44,4 +44,14 @@ module.exports = {
       console.error(err)
     }
   },
+  deleteAquarium: async (req, res) => {
+    try {
+      await Aquarium.remove({ _id: req.params.id });
+      res.redirect("/dashboard");
+    }
+    catch (err) {
+      console.error(err);
+      res.redirect("/dashboard");
+    }
+  },
 }
