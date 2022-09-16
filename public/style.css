@@ -289,6 +289,21 @@ textarea {
   cursor: pointer;
 }
 
+.dashboard-display {
+  display: flex;
+  flex-direction: column;
+}
+
+.fa-circle-xmark {
+  width: 25px;
+  height: 25px;
+  color: blue;
+}
+
+.fa-circle-xmark:hover {
+  color: green;
+}
+
 input[type="checkbox"] {
     cursor: pointer;
 }
