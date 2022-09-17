@@ -31,291 +31,295 @@
 
     </header>
 
-    <section class="flex-basics full-width">
 
-      <form id="share-form" class="flex-basics" action="/dashboard/shareAquarium" method="POST">
-        <h1 class="full-width center-text">Share Your Aquarium</h1>
-        <section class="full-width form-sec">
-          <label class="bold" for="fname">Name Your Tank:</label><br>
-          <input type="text" id="fname" name="fname" required><br>
-        </section>
-        <section class="full-width form-sec">
-          <label class="bold" for="water-type">Type of Tank:</label><br>
-          <input type="radio" id="salt" name="waterType" value="salt">
-          <label for="salt">Salt</label><br>
-          <input type="radio" id="fresh" name="waterType" value="fresh">
-          <label for="fresh">Fresh</label><br>
-        </section>
-        <section class="full-width form-sec">
-          <label class="bold" for="quantity">Enter either number of gallons or number of liters in your tank:</label><br>
-          <label for="gallons">Gallons:</label>
-          <input type="number" id="gallons" name="quantity[]" min="1" max="100000"><br>
-          <label for="liters">Liters:</label>
-          <input type="number" id="liters" name="quantity[]" min="1" max="100000">
-        </section>
-        <section class="full-width form-sec">
-          <label class="bold">Add photos of your tank:</label><br>
-          <label for="myfile">Select files:</label>
-          <input type="file" id="myfile" name="myfile" multiple required>
-        </section>
-        <section class="full-width form-sec">
-          <label class="bold" for="description">Notes/Description about your aquarium (describe as much or as little as you would like):</label><br>
-          <textarea id="description" name="description" rows="6"></textarea>
-        </section>
-        <section class="full-width form-sec">
-          <label class="bold">What fish do you have in your tank? Select all that apply: (optional)</label><br>
-          <section id="fish-selection">
-            <div>
-              <input type="checkbox" id="angelfish" name="fish[]" value="angelfish">
-              <label class="type-of-fish" for="angelfish">Angelfish</label>
-            </div>
-            <div>
-              <input type="checkbox" id="guppies" name="fish[]" value="guppies">
-              <label class="type-of-fish" for="guppies">Guppies</label>
-            </div>
-            <div>
-              <input type="checkbox" id="Mollies" name="fish[]" value="mollies">
-              <label class="type-of-fish" for="Mollies">Mollies</label>
-            </div>
-            <div>
-              <input type="checkbox" id="Platies" name="fish[]" value="platies">
-              <label class="type-of-fish" for="Platies">Platies</label>
-            </div>
-            <div>
-              <input type="checkbox" id="goldfish" name="fish[]" value="goldfish">
-              <label class="type-of-fish" for="goldfish">Goldfish</label>
-            </div>
-            <div>
-              <input type="checkbox" id="africancichlids" name="fish[]" value="africancichlids">
-              <label class="type-of-fish" for="africancichlids">African Cichlids</label>
-            </div>
-            <div>
-              <input type="checkbox" id="americancichlids" name="fish[]" value="americancichlids">
-              <label class="type-of-fish" for="americancichlids">American Cichlids</label>
-            </div>
-            <div>
-              <input type="checkbox" id="tetras" name="fish[]" value="tetras">
-              <label class="type-of-fish" for="tetras">Tetras</label>
-            </div>
-            <div>
-              <input type="checkbox" id="barbs" name="fish[]" value="barbs">
-              <label class="type-of-fish" for="barbs">Barbs</label>
-            </div>
-            <div>
-              <input type="checkbox" id="catfish" name="fish[]" value="catfish">
-              <label class="type-of-fish" for="catfish">Catfish</label>
-            </div>
-            <!-- <div>
-              <input type="checkbox" id="" name="" value="">
-              <label class="type-of-fish" for=""></label>
-            </div> -->
-            <div>
-              <input type="checkbox" id="other" name="fish[]" value="other">
-              <label class="type-of-fish" for="other">Other</label>
-            </div>
+      <section class="flex-basics full-width">
+
+        <form id="share-form" class="flex-basics" action="/dashboard/shareAquarium" method="POST">
+          <h1 class="full-width center-text">Share Your Aquarium</h1>
+          <section class="full-width form-sec">
+            <label class="bold" for="fname">Name Your Tank:</label><br>
+            <input type="text" id="fname" name="fname" required><br>
           </section>
-        </section>
-
-        <input class="submit-button" type="submit" value="Submit">
-      </form>
-
-    </section>
-
-    <% for(let i=0; i < aquariums.length; i++) {%>
-      <section class="dashboard-display flex-basics bigger-text displays">
-        <div class="display-container" data-id='<%=aquariums[i]._id%>'>
-          <div class="full-width displays-divs">
-            <h2 class="bigger-text displays-items"><span class="bigger-text displays-items upper"><%= aquariums[i].name %></span></h2>
-          </div>
-          <div class="full-width flex-basics">
-            <img class="displays-items" src="images/fish1.jpg" alt="Fish tank">
-          </div>
-          <div class="displays-divs">
-            <div class="full-width displays-items" id="likes">
+          <section class="full-width form-sec">
+            <label class="bold" for="water-type">Type of Tank:</label><br>
+            <input type="radio" id="salt" name="waterType" value="salt">
+            <label for="salt">Salt</label><br>
+            <input type="radio" id="fresh" name="waterType" value="fresh">
+            <label for="fresh">Fresh</label><br>
+          </section>
+          <section class="full-width form-sec">
+            <label class="bold" for="quantity">Enter either number of gallons or number of liters in your tank:</label><br>
+            <label for="gallons">Gallons:</label>
+            <input type="number" id="gallons" name="quantity[]" min="1" max="100000"><br>
+            <label for="liters">Liters:</label>
+            <input type="number" id="liters" name="quantity[]" min="1" max="100000">
+          </section>
+          <section class="full-width form-sec">
+            <label class="bold">Add photos of your tank:</label><br>
+            <label for="myfile">Select files:</label>
+            <input type="file" id="myfile" name="myfile" multiple>
+          </section>
+          <section class="full-width form-sec">
+            <label class="bold" for="description">Notes/Description about your aquarium (describe as much or as little as you would like):</label><br>
+            <textarea id="description" name="description" rows="6"></textarea>
+          </section>
+          <section class="full-width form-sec">
+            <label class="bold">What fish do you have in your tank? Select all that apply: (optional)</label><br>
+            <section id="fish-selection">
               <div>
-                <% if(aquariums[i].liked.includes(currentUser.id)) { %>
-                  <i class="fa fa-solid fa-thumbs-up fa-2x like-btn" style="color:blue"></i>
-                <% } else { %>
-                  <i class="fa fa-solid fa-thumbs-up fa-2x like-btn"></i>
-                <% } %>
-                <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
+                <input type="checkbox" id="angelfish" name="fish[]" value="angelfish">
+                <label class="type-of-fish" for="angelfish">Angelfish</label>
               </div>
+              <div>
+                <input type="checkbox" id="guppies" name="fish[]" value="guppies">
+                <label class="type-of-fish" for="guppies">Guppies</label>
+              </div>
+              <div>
+                <input type="checkbox" id="Mollies" name="fish[]" value="mollies">
+                <label class="type-of-fish" for="Mollies">Mollies</label>
+              </div>
+              <div>
+                <input type="checkbox" id="Platies" name="fish[]" value="platies">
+                <label class="type-of-fish" for="Platies">Platies</label>
+              </div>
+              <div>
+                <input type="checkbox" id="goldfish" name="fish[]" value="goldfish">
+                <label class="type-of-fish" for="goldfish">Goldfish</label>
+              </div>
+              <div>
+                <input type="checkbox" id="africancichlids" name="fish[]" value="africancichlids">
+                <label class="type-of-fish" for="africancichlids">African Cichlids</label>
+              </div>
+              <div>
+                <input type="checkbox" id="americancichlids" name="fish[]" value="americancichlids">
+                <label class="type-of-fish" for="americancichlids">American Cichlids</label>
+              </div>
+              <div>
+                <input type="checkbox" id="tetras" name="fish[]" value="tetras">
+                <label class="type-of-fish" for="tetras">Tetras</label>
+              </div>
+              <div>
+                <input type="checkbox" id="barbs" name="fish[]" value="barbs">
+                <label class="type-of-fish" for="barbs">Barbs</label>
+              </div>
+              <div>
+                <input type="checkbox" id="catfish" name="fish[]" value="catfish">
+                <label class="type-of-fish" for="catfish">Catfish</label>
+              </div>
+              <!-- <div>
+                <input type="checkbox" id="" name="" value="">
+                <label class="type-of-fish" for=""></label>
+              </div> -->
+              <div>
+                <input type="checkbox" id="other" name="fish[]" value="other">
+                <label class="type-of-fish" for="other">Other</label>
+              </div>
+            </section>
+          </section>
 
-            </div>
-          </div>
-          <div class="full-width displays-divs">
-            <hr class="displays-items">
-          </div>
-          <div class="full-width displays-divs">
-            <h3 class="regular-text displays-items">Tank: <span class="regular-text displays-items" style="text-transform:uppercase"><%= aquariums[i].tankSize %> <%= aquariums[i].measurementType %>, <%= aquariums[i].waterType %> water</span></h3>
-          </div>
-          <div class="full-width displays-divs">
-            <h3 class="regular-text displays-items"><span class="regular-text displays-items"><%= aquariums[i].description %></span></h3>
-          </div>
-          <div class="icon-form">
-            <button class="fa fa-edit fa-2x"></button>
-            <form
-              action="/dashboard/deleteAquarium/<%= aquariums[i].id %>?_method=DELETE"
-              method="POST"
-            >
-              <button class="fa fa-trash fa-2x" type="submit"></button>
-            </form>
-          </div>
-        </div>
-
-        <section class="edit-section hidden full-width displays">
-          <form class="edit-form flex-basics" action="/dashboard/editAquarium/<%= aquariums[i].id %>?_method=PUT" method="POST">
-            <div class="edit-header">
-              <h1 class="full-width center-text">Edit Your Aquarium</h1>
-              <i class="fas fa-circle-xmark fa-2x minimize"></i>
-            </div>
-            <section class="full-width form-sec">
-              <label class="bold" for="fname">Name Your Tank:</label><br>
-              <input type="text" id="fname" name="fname" value="<%= aquariums[i].name %>" required><br>
-            </section>
-            <section class="full-width form-sec">
-              <label class="bold" for="water-type">Type of Tank:</label><br>
-              <% if(aquariums[i].waterType == 'salt'){ %>
-                <input type="radio" id="salt" name="waterType" value="salt" checked="checked">
-              <% } else { %>
-                <input type="radio" id="salt" name="waterType" value="salt">
-              <% } %>
-              <label for="salt">Salt</label><br>
-              <% if(aquariums[i].waterType == 'fresh'){ %>
-                <input type="radio" id="fresh" name="waterType" value="fresh" checked="checked">
-              <% } else { %>
-                <input type="radio" id="fresh" name="waterType" value="fresh">
-              <% } %>
-              <label for="fresh">Fresh</label><br>
-            </section>
-            <section class="full-width form-sec">
-              <label class="bold" for="quantity">Enter either number of gallons or number of liters in your tank:</label><br>
-              <label for="gallons">Gallons:</label>
-              <% if(aquariums[i].measurementType == 'gallons'){ %>
-                <input type="number" id="gallons" name="quantity[]" min="1" max="100000" value="<%= aquariums[i].tankSize %>"><br>
-              <% } else { %>
-                <input type="number" id="gallons" name="quantity[]" min="1" max="100000"><br>
-              <% } %>
-              <label for="liters">Liters:</label>
-              <% if(aquariums[i].measurementType == 'liters'){ %>
-                <input type="number" id="liters" name="quantity[]" min="1" max="100000" value="<%= aquariums[i].tankSize %>"><br>
-              <% } else { %>
-                <input type="number" id="liters" name="quantity[]" min="1" max="100000">
-              <% } %>
-            </section>
-            <section class="full-width form-sec">
-              <label class="bold">Add photos of your tank:</label><br>
-              <label for="myfile">Select files:</label>
-              <input type="file" id="myfile" name="myfile" multiple>
-            </section>
-            <section class="full-width form-sec">
-              <label class="bold" for="description">Notes/Description about your aquarium (describe as much or as little as you would like):</label><br>
-              <textarea id="description" name="description" rows="6"><%= aquariums[i].description %></textarea>
-            </section>
-            <section class="full-width form-sec">
-              <label class="bold">What fish do you have in your tank? Select all that apply: (optional)</label><br>
-              <section id="fish-selection">
-                <div>
-                  <% if(aquariums[i].fish.includes('angelfish')) { %>
-                    <input type="checkbox" id="angelfish" name="fish[]" value="angelfish" checked="checked">
-                  <% } else { %>
-                    <input type="checkbox" id="angelfish" name="fish[]" value="angelfish">
-                  <% } %>
-                  <label class="type-of-fish" for="angelfish">Angelfish</label>
-                </div>
-                <div>
-                  <% if(aquariums[i].fish.includes('guppies')) { %>
-                    <input type="checkbox" id="guppies" name="fish[]" value="guppies" checked="checked">
-                  <% } else { %>
-                    <input type="checkbox" id="guppies" name="fish[]" value="guppies">
-                  <% } %>
-                  <label class="type-of-fish" for="guppies">Guppies</label>
-                </div>
-                <div>
-                  <% if(aquariums[i].fish.includes('mollies')) { %>
-                    <input type="checkbox" id="mollies" name="fish[]" value="mollies" checked="checked">
-                  <% } else { %>
-                    <input type="checkbox" id="mollies" name="fish[]" value="mollies">
-                  <% } %>
-                  <label class="type-of-fish" for="mollies">Mollies</label>
-                </div>
-                <div>
-                  <% if(aquariums[i].fish.includes('platies')) { %>
-                    <input type="checkbox" id="platies" name="fish[]" value="platies" checked="checked">
-                  <% } else { %>
-                    <input type="checkbox" id="platies" name="fish[]" value="platies">
-                  <% } %>
-                  <label class="type-of-fish" for="platies">Platies</label>
-                </div>
-                <div>
-                  <% if(aquariums[i].fish.includes('goldfish')) { %>
-                    <input type="checkbox" id="goldfish" name="fish[]" value="goldfish" checked="checked">
-                  <% } else { %>
-                    <input type="checkbox" id="goldfish" name="fish[]" value="goldfish">
-                  <% } %>
-                  <label class="type-of-fish" for="goldfish">Goldfish</label>
-                </div>
-                <div>
-                  <% if(aquariums[i].fish.includes('africancichlids')) { %>
-                    <input type="checkbox" id="africancichlids" name="fish[]" value="africancichlids" checked="checked">
-                  <% } else { %>
-                    <input type="checkbox" id="africancichlids" name="fish[]" value="africancichlids">
-                  <% } %>
-                  <label class="type-of-fish" for="africancichlids">African Cichlids</label>
-                </div>
-                <div>
-                  <% if(aquariums[i].fish.includes('americancichlids')) { %>
-                    <input type="checkbox" id="americancichlids" name="fish[]" value="americancichlids" checked="checked">
-                  <% } else { %>
-                    <input type="checkbox" id="americancichlids" name="fish[]" value="americancichlids">
-                  <% } %>
-                  <label class="type-of-fish" for="americancichlids">American Cichlids</label>
-                </div>
-                <div>
-                  <% if(aquariums[i].fish.includes('tetras')) { %>
-                    <input type="checkbox" id="tetras" name="fish[]" value="tetras" checked="checked">
-                  <% } else { %>
-                    <input type="checkbox" id="tetras" name="fish[]" value="tetras">
-                  <% } %>
-                  <label class="type-of-fish" for="tetras">Tetras</label>
-                </div>
-                <div>
-                  <% if(aquariums[i].fish.includes('barbs')) { %>
-                    <input type="checkbox" id="barbs" name="fish[]" value="barbs" checked="checked">
-                  <% } else { %>
-                    <input type="checkbox" id="barbs" name="fish[]" value="barbs">
-                  <% } %>
-                  <label class="type-of-fish" for="barbs">Barbs</label>
-                </div>
-                <div>
-                  <% if(aquariums[i].fish.includes('catfish')) { %>
-                    <input type="checkbox" id="catfish" name="fish[]" value="catfish" checked="checked">
-                  <% } else { %>
-                    <input type="checkbox" id="catfish" name="fish[]" value="catfish">
-                  <% } %>
-                  <label class="type-of-fish" for="catfish">Catfish</label>
-                </div>
-                <!-- <div>
-                  <input type="checkbox" id="" name="" value="">
-                  <label class="type-of-fish" for=""></label>
-                </div> -->
-                <div>
-                  <% if(aquariums[i].fish.includes('other')) { %>
-                    <input type="checkbox" id="other" name="fish[]" value="other" checked="checked">
-                  <% } else { %>
-                    <input type="checkbox" id="other" name="fish[]" value="other">
-                  <% } %>
-                  <label class="type-of-fish" for="other">Other</label>
-                </div>
-              </section>
-            </section>
-            <input class="submit-button" type="submit" value="Save">
-          </form>
-        </section>
+          <input class="submit-button" type="submit" value="Submit">
+        </form>
 
       </section>
 
-    <% } %>
+      <% for(let i=0; i < aquariums.length; i++) {%>
+        <section class="dashboard-display flex-basics bigger-text displays">
+          <div class="display-container" data-id='<%=aquariums[i]._id%>'>
+            <div class="full-width displays-divs">
+              <h2 class="bigger-text displays-items"><span class="bigger-text displays-items upper"><%= aquariums[i].name %></span></h2>
+            </div>
+            <div class="full-width flex-basics">
+              <img class="displays-items" src="images/fish1.jpg" alt="Fish tank">
+            </div>
+            <div class="displays-divs">
+              <div class="full-width displays-items" id="likes">
+                <div>
+                  <% if(aquariums[i].liked.includes(currentUser.id)) { %>
+                    <i class="fa fa-solid fa-thumbs-up fa-2x like-btn" style="color:blue"></i>
+                  <% } else { %>
+                    <i class="fa fa-solid fa-thumbs-up fa-2x like-btn"></i>
+                  <% } %>
+                  <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
+                </div>
+
+              </div>
+            </div>
+            <div class="full-width displays-divs">
+              <hr class="displays-items">
+            </div>
+            <div class="full-width displays-divs">
+              <h3 class="regular-text displays-items">Tank: <span class="regular-text displays-items" style="text-transform:uppercase"><%= aquariums[i].tankSize %> <%= aquariums[i].measurementType %>, <%= aquariums[i].waterType %> water</span></h3>
+            </div>
+            <div class="full-width displays-divs">
+              <h3 class="regular-text displays-items"><span class="regular-text displays-items"><%= aquariums[i].description %></span></h3>
+            </div>
+            <div class="icon-form">
+              <button class="fa fa-edit fa-2x"></button>
+              <form
+                action="/dashboard/deleteAquarium/<%= aquariums[i].id %>?_method=DELETE"
+                method="POST"
+              >
+                <button class="fa fa-trash fa-2x" type="submit"></button>
+              </form>
+            </div>
+          </div>
+
+          <section class="edit-section hidden full-width displays">
+            <form class="edit-form flex-basics" action="/dashboard/editAquarium/<%= aquariums[i].id %>?_method=PUT" method="POST">
+              <div class="edit-header">
+                <h1 class="full-width center-text">Edit Your Aquarium</h1>
+                <i class="fas fa-circle-xmark fa-2x minimize"></i>
+              </div>
+              <section class="full-width form-sec">
+                <label class="bold" for="fname">Name Your Tank:</label><br>
+                <input type="text" id="fname" name="fname" value="<%= aquariums[i].name %>" required><br>
+              </section>
+              <section class="full-width form-sec">
+                <label class="bold" for="water-type">Type of Tank:</label><br>
+                <% if(aquariums[i].waterType == 'salt'){ %>
+                  <input type="radio" id="salt" name="waterType" value="salt" checked="checked">
+                <% } else { %>
+                  <input type="radio" id="salt" name="waterType" value="salt">
+                <% } %>
+                <label for="salt">Salt</label><br>
+                <% if(aquariums[i].waterType == 'fresh'){ %>
+                  <input type="radio" id="fresh" name="waterType" value="fresh" checked="checked">
+                <% } else { %>
+                  <input type="radio" id="fresh" name="waterType" value="fresh">
+                <% } %>
+                <label for="fresh">Fresh</label><br>
+              </section>
+              <section class="full-width form-sec">
+                <label class="bold" for="quantity">Enter either number of gallons or number of liters in your tank:</label><br>
+                <label for="gallons">Gallons:</label>
+                <% if(aquariums[i].measurementType == 'gallons'){ %>
+                  <input type="number" id="gallons" name="quantity[]" min="1" max="100000" value="<%= aquariums[i].tankSize %>"><br>
+                <% } else { %>
+                  <input type="number" id="gallons" name="quantity[]" min="1" max="100000"><br>
+                <% } %>
+                <label for="liters">Liters:</label>
+                <% if(aquariums[i].measurementType == 'liters'){ %>
+                  <input type="number" id="liters" name="quantity[]" min="1" max="100000" value="<%= aquariums[i].tankSize %>"><br>
+                <% } else { %>
+                  <input type="number" id="liters" name="quantity[]" min="1" max="100000">
+                <% } %>
+              </section>
+              <section class="full-width form-sec">
+                <label class="bold">Add photos of your tank:</label><br>
+                <label for="myfile">Select files:</label>
+                <input type="file" id="myfile" name="myfile" multiple>
+              </section>
+              <section class="full-width form-sec">
+                <label class="bold" for="description">Notes/Description about your aquarium (describe as much or as little as you would like):</label><br>
+                <textarea id="description" name="description" rows="6"><%= aquariums[i].description %></textarea>
+              </section>
+              <section class="full-width form-sec">
+                <label class="bold">What fish do you have in your tank? Select all that apply: (optional)</label><br>
+                <section id="fish-selection">
+                  <div>
+                    <% if(aquariums[i].fish.includes('angelfish')) { %>
+                      <input type="checkbox" id="angelfish" name="fish[]" value="angelfish" checked="checked">
+                    <% } else { %>
+                      <input type="checkbox" id="angelfish" name="fish[]" value="angelfish">
+                    <% } %>
+                    <label class="type-of-fish" for="angelfish">Angelfish</label>
+                  </div>
+                  <div>
+                    <% if(aquariums[i].fish.includes('guppies')) { %>
+                      <input type="checkbox" id="guppies" name="fish[]" value="guppies" checked="checked">
+                    <% } else { %>
+                      <input type="checkbox" id="guppies" name="fish[]" value="guppies">
+                    <% } %>
+                    <label class="type-of-fish" for="guppies">Guppies</label>
+                  </div>
+                  <div>
+                    <% if(aquariums[i].fish.includes('mollies')) { %>
+                      <input type="checkbox" id="mollies" name="fish[]" value="mollies" checked="checked">
+                    <% } else { %>
+                      <input type="checkbox" id="mollies" name="fish[]" value="mollies">
+                    <% } %>
+                    <label class="type-of-fish" for="mollies">Mollies</label>
+                  </div>
+                  <div>
+                    <% if(aquariums[i].fish.includes('platies')) { %>
+                      <input type="checkbox" id="platies" name="fish[]" value="platies" checked="checked">
+                    <% } else { %>
+                      <input type="checkbox" id="platies" name="fish[]" value="platies">
+                    <% } %>
+                    <label class="type-of-fish" for="platies">Platies</label>
+                  </div>
+                  <div>
+                    <% if(aquariums[i].fish.includes('goldfish')) { %>
+                      <input type="checkbox" id="goldfish" name="fish[]" value="goldfish" checked="checked">
+                    <% } else { %>
+                      <input type="checkbox" id="goldfish" name="fish[]" value="goldfish">
+                    <% } %>
+                    <label class="type-of-fish" for="goldfish">Goldfish</label>
+                  </div>
+                  <div>
+                    <% if(aquariums[i].fish.includes('africancichlids')) { %>
+                      <input type="checkbox" id="africancichlids" name="fish[]" value="africancichlids" checked="checked">
+                    <% } else { %>
+                      <input type="checkbox" id="africancichlids" name="fish[]" value="africancichlids">
+                    <% } %>
+                    <label class="type-of-fish" for="africancichlids">African Cichlids</label>
+                  </div>
+                  <div>
+                    <% if(aquariums[i].fish.includes('americancichlids')) { %>
+                      <input type="checkbox" id="americancichlids" name="fish[]" value="americancichlids" checked="checked">
+                    <% } else { %>
+                      <input type="checkbox" id="americancichlids" name="fish[]" value="americancichlids">
+                    <% } %>
+                    <label class="type-of-fish" for="americancichlids">American Cichlids</label>
+                  </div>
+                  <div>
+                    <% if(aquariums[i].fish.includes('tetras')) { %>
+                      <input type="checkbox" id="tetras" name="fish[]" value="tetras" checked="checked">
+                    <% } else { %>
+                      <input type="checkbox" id="tetras" name="fish[]" value="tetras">
+                    <% } %>
+                    <label class="type-of-fish" for="tetras">Tetras</label>
+                  </div>
+                  <div>
+                    <% if(aquariums[i].fish.includes('barbs')) { %>
+                      <input type="checkbox" id="barbs" name="fish[]" value="barbs" checked="checked">
+                    <% } else { %>
+                      <input type="checkbox" id="barbs" name="fish[]" value="barbs">
+                    <% } %>
+                    <label class="type-of-fish" for="barbs">Barbs</label>
+                  </div>
+                  <div>
+                    <% if(aquariums[i].fish.includes('catfish')) { %>
+                      <input type="checkbox" id="catfish" name="fish[]" value="catfish" checked="checked">
+                    <% } else { %>
+                      <input type="checkbox" id="catfish" name="fish[]" value="catfish">
+                    <% } %>
+                    <label class="type-of-fish" for="catfish">Catfish</label>
+                  </div>
+                  <!-- <div>
+                    <input type="checkbox" id="" name="" value="">
+                    <label class="type-of-fish" for=""></label>
+                  </div> -->
+                  <div>
+                    <% if(aquariums[i].fish.includes('other')) { %>
+                      <input type="checkbox" id="other" name="fish[]" value="other" checked="checked">
+                    <% } else { %>
+                      <input type="checkbox" id="other" name="fish[]" value="other">
+                    <% } %>
+                    <label class="type-of-fish" for="other">Other</label>
+                  </div>
+                </section>
+              </section>
+              <input class="submit-button" type="submit" value="Save">
+            </form>
+          </section>
+
+        </section>
+
+      <% } %>
+
+    <footer class="flex-basics full-wdith">
+    </footer>
 
     <script src="dashboard.js"></script>
   </body>
