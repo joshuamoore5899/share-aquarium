@@ -54,6 +54,11 @@ module.exports = {
   },
   deleteAquarium: async (req, res) => {
     try {
+      let aquarium = await Aquarium.findById({ _id: req.params.id });
+
+      for (let i = 0; i < aquarium.images.length; i++) {
+        await cloudinary.uploader.destroy(aquarium.cloudinaryID[i]);
+      }
       await Aquarium.remove({ _id: req.params.id });
       res.redirect("/dashboard");
     }
