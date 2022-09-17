@@ -1,4 +1,5 @@
 const Aquarium = require('../models/Aquarium');
+const cloudinary = require("../middleware/cloudinary");
 
 module.exports = {
   getDashboard: async (req, res) => {
@@ -26,13 +27,21 @@ module.exports = {
         measurementType = 'liters';
         trueSize = Number(req.body.quantity[1]);
       }
+      let images = [];
+      let imageID = [];
+      for (let i = 0; i < req.files.length; i++) {
+        let result = await cloudinary.uploader.upload(req.files[i].path);
+        images.push(result.secure_url);
+        imageID.push(result.public_id);
+      }
       const aquarium = await Aquarium.create({
         name: req.body.fname,
         waterType: req.body.waterType,
         tankSize: tankSize,
         trueSize: trueSize,
         measurementType: measurementType,
-        images: req.body.myFile,
+        images: images,
+        cloudinaryID: imageID,
         description: req.body.description,
         fish: req.body.fish,
         likes: 0,
