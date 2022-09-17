@@ -18,6 +18,9 @@
       <nav class="flex-basics full-width">
         <a href="/">Home</a>
         <a href="/dashboard">Dashboard</a>
+        <% if (currentUser) { %>
+          <a href="/dashboard/logout">Logout</a>
+        <% } %>
       </nav>
     </header>
 
@@ -32,7 +35,6 @@
         <span id="first-sort" class="sort-items" data-id="new">New</span>
         <span class="sort-items" data-id="old">Old</span>
         <span class="sort-items" data-id="liked">Liked</span>
-        <span class="sort-items" data-id="inspired">Inspiring</span>
         <span class="sort-items" data-id="big">Tank Size Big</span>
         <span class="sort-items" data-id="small">Tank Size Small</span>
       </section>
@@ -50,10 +52,21 @@
           </div>
           <div class="displays-divs">
             <div class="full-width displays-items" id="likes">
-              <i class="fa fa-solid fa-thumbs-up fa-2x like-btn"></i>
-              <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
-              <i class="fa fa-lightbulb-o fa-2x inspired-btn"></i>
-              <span class="icon-text">Inspired: <%= aquariums[i].inspired %></span>
+              <div>
+                <% if (currentUser) { %>
+                  <% if(aquariums[i].liked.includes(currentUser.id)) { %>
+                    <i class="fa fa-solid fa-thumbs-up fa-2x like-btn" style="color:blue"></i>
+                  <% } else { %>
+                    <i class="fa fa-solid fa-thumbs-up fa-2x like-btn"></i>
+                  <% } %>
+                <% } else { %>
+                  <i class="fa fa-solid fa-thumbs-up fa-2x"></i>
+                <% } %>
+                <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
+              </div>
+              <% if (!currentUser) { %>
+                <span class="like-no-user"><a href="/dashboard/login">Must be signed in to like posts</a></span>
+              <% } %>
             </div>
           </div>
           <div class="full-width displays-divs">

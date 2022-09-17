@@ -115,8 +115,14 @@ i {
 }
 
 #likes {
+  display: flex;
   width: 90%;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.like-no-user a {
+  color: red;
+  font-size: 1.3rem;
 }
 
 .btn {
@@ -254,7 +260,7 @@ textarea {
   flex-wrap: wrap;
 }
 
-#share-formm
+#share-form,
 .edit-section {
   flex-direction: column;
   justify-content: flex-start;

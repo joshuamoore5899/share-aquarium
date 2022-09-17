@@ -36,7 +36,6 @@ module.exports = {
         description: req.body.description,
         fish: req.body.fish,
         likes: 0,
-        inspired: 0,
         user: req.user.id,
       });
       res.redirect('/dashboard');

@@ -11,7 +11,7 @@ const aquariumSchema = new Schema({
   description: String,
   fish: Array,
   likes: Number,
-  inspired: Number,
+  liked: Array,
   dateCreated: {
     type: Date,
     default: Date.now,

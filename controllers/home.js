@@ -29,22 +29,21 @@ module.exports = {
   addLike: async (req, res)=> {
     try {
       const aquarium = await Aquarium.findOne({_id:req.body.itemID}).lean();
-      let numberOfLikes = aquarium.likes + 1;
+      let array = aquarium.liked;
+      let numberOfLikes = aquarium.likes;
+      if (array.includes(req.user.id)) {
+        numberOfLikes--;
+        let start = array.slice(0, array.indexOf(req.user.id));
+        let end = array.slice(array.indexOf(req.user.id) + 1, array.length);
+        array = start.concat(end);
+      }
+      else {
+        array.push(req.user.id);
+        numberOfLikes = aquarium.likes + 1;
+      }
       await Aquarium.findOneAndUpdate({_id:req.body.itemID},{
-        likes: numberOfLikes
-      })
-      res.json('Added Like');
-    }
-    catch(err) {
-      console.error(err);
-    }
-  },
-  addInspired: async (req, res)=> {
-    try {
-      const aquarium = await Aquarium.findOne({_id:req.body.itemID}).lean();
-      let numberOfInspired = aquarium.inspired + 1;
-      await Aquarium.findOneAndUpdate({_id:req.body.itemID},{
-        inspired: numberOfInspired
+        likes: numberOfLikes,
+        liked: array,
       })
       res.json('Added Like');
     }

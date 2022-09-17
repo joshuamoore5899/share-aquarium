@@ -132,10 +132,15 @@
           </div>
           <div class="displays-divs">
             <div class="full-width displays-items" id="likes">
-              <i class="fa fa-solid fa-thumbs-up fa-2x like-btn"></i>
-              <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
-              <i class="fa fa-lightbulb-o fa-2x inspired-btn"></i>
-              <span class="icon-text">Inspired: <%= aquariums[i].inspired %></span>
+              <div>
+                <% if(aquariums[i].liked.includes(currentUser.id)) { %>
+                  <i class="fa fa-solid fa-thumbs-up fa-2x like-btn" style="color:blue"></i>
+                <% } else { %>
+                  <i class="fa fa-solid fa-thumbs-up fa-2x like-btn"></i>
+                <% } %>
+                <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
+              </div>
+
             </div>
           </div>
           <div class="full-width displays-divs">
