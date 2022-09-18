@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
-    <script src="https://use.fontawesome.com/48cbd144bf.js"></script>
     <meta charset="utf-8">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -47,9 +46,17 @@
           <div class="full-width displays-divs">
             <h2 class="bigger-text displays-items"><span class="bigger-text displays-items upper"><%= aquariums[i].name %></span></h2>
           </div>
-          <div class="full-width flex-basics">
+          <div class="full-width flex-basics main-pic">
             <img class="displays-items" src="<%= aquariums[i].images[0] %>" alt="Fish tank">
           </div>
+          <div class="full-width displays-divs flex-basics">
+            <% for (let j = 0; j < aquariums[i].images.length; j++) { %>
+              <img class="img-icons" src="<%= aquariums[i].images[j] %>" data-url="<%= aquariums[i].images[j] %>">
+            <% } %>
+          </div>
+
+
+
           <div class="displays-divs">
             <div class="full-width displays-items" id="likes">
               <div>

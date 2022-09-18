@@ -339,6 +339,16 @@ input[type="checkbox"] {
   justify-content: flex-end;
 }
 
+.img-icons {
+  border: 1px solid black;
+  width: 100px;
+  height: 55px;
+  margin: 5px 10px;
+  object-fit: cover;
+  flex-wrap: wrap;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 750px) {
   .bigger-text {
     font-size: 2rem;

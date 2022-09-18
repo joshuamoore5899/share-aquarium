@@ -3,6 +3,7 @@ const closeEditButtons = document.querySelectorAll('.minimize');
 const likes = document.querySelectorAll('.like-btn');
 const wrapper = document.querySelector('#dashboard-wrapper');
 const edits = document.querySelectorAll('.edit-section');
+const images = document.querySelectorAll('.img-icons');
 
 Array.from(editButtons).forEach((el)=> {
   el.addEventListener('click', showEdit);
@@ -56,6 +57,24 @@ async function addLike() {
     location.reload();
   }
   catch(err) {
+    console.error(err);
+  }
+}
+
+
+//image carousel
+Array.from(images).forEach((el)=> {
+  el.addEventListener('click', changeMain)
+})
+
+function changeMain() {
+  const imageURL = this.dataset.url;
+  const mainPic = this.parentNode.parentNode.querySelector('.main-pic img');
+  console.log(imageURL, mainPic)
+  try {
+    mainPic.src=`${imageURL}`;
+  }
+  catch (err) {
     console.error(err);
   }
 }

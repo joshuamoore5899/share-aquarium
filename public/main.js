@@ -2,6 +2,7 @@
 const mybutton = document.getElementById("myBtn");
 const likes = document.querySelectorAll('.like-btn');
 const sort = document.querySelectorAll('.sort-items');
+const images = document.querySelectorAll('.img-icons');
 
 
 
@@ -60,6 +61,23 @@ async function addLike() {
   }
   catch(err) {
     console.log('here')
+    console.error(err);
+  }
+}
+
+//image carousel
+Array.from(images).forEach((el)=> {
+  el.addEventListener('click', changeMain)
+})
+
+function changeMain() {
+  const imageURL = this.dataset.url;
+  const mainPic = this.parentNode.parentNode.querySelector('.main-pic img');
+  console.log(imageURL, mainPic)
+  try {
+    mainPic.src=`${imageURL}`;
+  }
+  catch (err) {
     console.error(err);
   }
 }
