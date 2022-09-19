@@ -377,3 +377,18 @@ input[type="checkbox"] {
     font-size: 1.8rem;
   }
 }
+
+@media screen and (max-width: 350px) {
+  header nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  header nav a {
+    border-right: none;
+  }
+
+  header h1 {
+    text-align: center;
+  }
+}

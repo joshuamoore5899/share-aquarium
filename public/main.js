@@ -73,7 +73,6 @@ Array.from(images).forEach((el)=> {
 function changeMain() {
   const imageURL = this.dataset.url;
   const mainPic = this.parentNode.parentNode.querySelector('.main-pic img');
-  console.log(imageURL, mainPic)
   try {
     mainPic.src=`${imageURL}`;
   }

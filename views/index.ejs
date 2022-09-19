@@ -19,6 +19,8 @@
         <a href="/dashboard">Dashboard</a>
         <% if (currentUser) { %>
           <a href="/dashboard/logout">Logout</a>
+        <% } else { %>
+          <a href="/dashboard/login">Login</a>
         <% } %>
       </nav>
     </header>
