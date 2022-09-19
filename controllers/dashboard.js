@@ -69,6 +69,25 @@ module.exports = {
   },
   editAquarium: async (req, res) => {
     try {
+      let imagesToDelete = req.body.deleteImages.split(', ');
+      imagesToDelete = imagesToDelete.slice(0, imagesToDelete.length - 1);
+      for (let i = 0; i < imagesToDelete.length; i++) {
+        await cloudinary.uploader.destroy(imagesToDelete[i]);
+      }
+      let aquariumObj = await Aquarium.findById({ _id: req.params.id });
+      let aquariumImages = aquariumObj.images;
+      let aquariumCloudinary = aquariumObj.cloudinaryID;
+      for (let i = 0; i < imagesToDelete.length; i++) {
+        let index = aquariumCloudinary.indexOf(imagesToDelete[i]);
+        aquariumImages.splice(index, 1);
+        aquariumCloudinary.splice(index, 1);
+      }
+      console.log(req.files);
+      for (let i = 0; i < req.files.length; i++) {
+        let result = await cloudinary.uploader.upload(req.files[i].path);
+        aquariumImages.push(result.secure_url);
+        aquariumCloudinary.push(result.public_id);
+      }
       let tankSize;
       let measurementType;
       let trueSize;
@@ -92,7 +111,8 @@ module.exports = {
         tankSize: tankSize,
         trueSize: trueSize,
         measurementType: measurementType,
-        images: req.body.myFile,
+        images: aquariumImages,
+        cloudinaryID: aquariumCloudinary,
         description: req.body.description,
         fish: req.body.fish,
       });

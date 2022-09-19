@@ -4,6 +4,7 @@ const likes = document.querySelectorAll('.like-btn');
 const wrapper = document.querySelector('#dashboard-wrapper');
 const edits = document.querySelectorAll('.edit-section');
 const images = document.querySelectorAll('.img-icons');
+const deleteImage = document.querySelectorAll('.img-cover');
 
 Array.from(editButtons).forEach((el)=> {
   el.addEventListener('click', showEdit);
@@ -70,11 +71,36 @@ Array.from(images).forEach((el)=> {
 function changeMain() {
   const imageURL = this.dataset.url;
   const mainPic = this.parentNode.parentNode.querySelector('.main-pic img');
-  console.log(imageURL, mainPic)
   try {
     mainPic.src=`${imageURL}`;
   }
   catch (err) {
     console.error(err);
+  }
+}
+
+
+Array.from(deleteImage).forEach((el)=> {
+  el.addEventListener('click', selectDelete);
+})
+
+function selectDelete() {
+  const id = this.dataset.id;
+  const deleteImage = this.parentNode.parentNode.parentNode.querySelector('#deleteImages');
+  const image = this.parentNode.querySelector('img');
+  let current = deleteImage.value;
+  try {
+    if (current.includes(id)) {
+      current = current.replace(id, "");
+      current = current.replace(", ", "");
+    }
+    else {
+      current += (id + ', ');
+    }
+    deleteImage.setAttribute('value', current);
+    image.classList.toggle('selected-border');
+  }
+  catch (err) {
+    console.error(err)
   }
 }

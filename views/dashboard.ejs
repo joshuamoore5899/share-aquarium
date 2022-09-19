@@ -170,7 +170,7 @@
           </div>
 
           <section class="edit-section hidden full-width displays">
-            <form class="edit-form flex-basics" action="/dashboard/editAquarium/<%= aquariums[i].id %>?_method=PUT" method="POST">
+            <form class="edit-form flex-basics" action="/dashboard/editAquarium/<%= aquariums[i].id %>?_method=PUT" enctype="multipart/form-data" method="POST">
               <div class="edit-header">
                 <h1 class="full-width center-text">Edit Your Aquarium</h1>
                 <i class="fas fa-circle-xmark fa-2x minimize"></i>
@@ -211,9 +211,21 @@
               </section>
               <section class="full-width form-sec">
                 <label class="bold">Add photos of your tank:</label><br>
-                <label for="myfile">Select files:</label>
-                <input type="file" id="myfile" name="myfile" multiple>
+                <label for="files">Select files:</label>
+                <input type="file" id="files" name="files" multiple>
               </section>
+              <div style="font-size:1.5rem">Select images you wish to delete
+              </div>
+              <div class="full-width displays-divs flex-basics">
+                <% for (let j = 0; j < aquariums[i].images.length; j++) { %>
+                  <div>
+                    <div class="img-cover" data-id="<%= aquariums[i].cloudinaryID[j] %>">
+                    </div>
+                    <img class="img-icons-edit" src="<%= aquariums[i].images[j] %>" data-url="<%= aquariums[i].images[j] %>">
+                  </div>
+                <% } %>
+              </div>
+              <input type="text" id="deleteImages" name="deleteImages" style="display:none" value="">
               <section class="full-width form-sec">
                 <label class="bold" for="description">Notes/Description about your aquarium (describe as much or as little as you would like):</label><br>
                 <textarea id="description" name="description" rows="6"><%= aquariums[i].description %></textarea>
