@@ -1,44 +1,28 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <title>Share Aquarium</title>
-    <link rel="icon" type="image/x-icon" href="/images/fish.png">
-  </head>
-  <body>
-    <header class="flex-basics class="full-width"">
-      <h1>Share Aquarium</h1>
-      <nav class="flex-basics full-width">
-        <a href="/">Home</a>
-        <a href="/dashboard">Dashboard</a>
-        <% if (currentUser) { %>
-          <a href="/dashboard/logout">Logout</a>
-        <% } else { %>
-          <a href="/dashboard/login">Login</a>
-        <% } %>
-      </nav>
-    </header>
+<%- include('partials/header') -%>
 
     <button onclick="topFunction()" id="myBtn" class="btn" title="Go to top">BACK TO TOP</button>
 
     <a class="btn share-btn" href="/dashboard"><button class="btn share-btn">SHARE YOUR AQUARIUM</button></a>
 
     <section id="sort-by" class="full-width">
+      <div id="sort-items" class="full-width">
+        <i class="fa-solid fa-filter fa-2x"></i>
+      </div>
+      <section id="filter-section" class="hidden full-width">
+        <form id="filter-form">
+          <h2>Sort and Filter</h2>
 
-      <section id="sort-items">
-        <h3>Sort By: </h3>
-        <span id="first-sort" class="sort-items" data-id="new">New</span>
-        <span class="sort-items" data-id="old">Old</span>
-        <span class="sort-items" data-id="liked">Liked</span>
-        <span class="sort-items" data-id="big">Tank Size Big</span>
-        <span class="sort-items" data-id="small">Tank Size Small</span>
+        </form>
       </section>
+
+      <!-- <section id="sort-items">
+        <h3>Sort By: </h3>
+        <span id="first-sort" class="sort-items" data-id="new"><a href="/new">New</a></span>
+        <span class="sort-items" data-id="old"><a href="/old">Old</a></span>
+        <span class="sort-items" data-id="liked"><a href="/liked">Liked</a></span>
+        <span class="sort-items" data-id="big"><a href="/big">Tank Size Big</a></span>
+        <span class="sort-items" data-id="small"><a href="/small">Tank Size Small</a></span>
+      </section> -->
     </section>
 
 
@@ -92,8 +76,7 @@
     <% } %>
 
 
-    <footer class="flex-basics full-wdith">
-    </footer>
+    <%- include('partials/footer') -%>
 
     <script src="main.js"></script>
   </body>

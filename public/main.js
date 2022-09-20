@@ -1,8 +1,18 @@
 //Get the button:
 const mybutton = document.getElementById("myBtn");
 const likes = document.querySelectorAll('.like-btn');
-const sort = document.querySelectorAll('.sort-items');
 const images = document.querySelectorAll('.img-icons');
+document.querySelector('.fa-filter').addEventListener('click', showFilter);
+
+function showFilter() {
+  try {
+    const section = this.parentNode.parentNode.querySelector('#filter-section');
+    section.classList.toggle('hidden');
+  }
+  catch (err) {
+    console.error(err)
+  }
+}
 
 
 
@@ -21,23 +31,6 @@ function scrollFunction() {
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-
-//sort event listeners
-Array.from(sort).forEach((el)=> {
-  el.addEventListener('click', sortList);
-})
-
-//sort list get request
-async function sortList() {
-  const itemID = this.dataset.id;
-  console.log(itemID)
-  try {
-    window.location.replace(`/${itemID}`);
-  }
-  catch (err) {
-    console.error(err);
-  }
 }
 
 //like button event listeners

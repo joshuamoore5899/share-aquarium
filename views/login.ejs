@@ -1,4 +1,6 @@
-<h1>Login</h1>
+<%- include('partials/header') -%>
+
+
 
 <main class="container">
   <div class="row justify-content-center">
@@ -9,31 +11,27 @@
       messages.info.forEach( el => { %>
       <div class="alert alert-info"><%= el.msg %></div>
       <% }) %> <% } %>
-      <form action="/dashboard/login" method="POST">
-        <div class="mb-3">
-          <label for="exampleInputEmail1" class="form-label"
-            >Email address</label
-          >
-          <input
-            type="email"
-            class="form-control"
-            id="exampleInputEmail1"
-            aria-describedby="emailHelp"
-            name="email"
-          />
-        </div>
-        <div class="mb-3">
-          <label for="exampleInputPassword1" class="form-label">Password</label>
-          <input
-            type="password"
-            class="form-control"
-            id="exampleInputPassword1"
-            name="password"
-          />
-        </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
-      <span>Don't have an account yet? <a href="/dashboard/signup">Sign Up</a> here.</span>
+      <div class="login-signup-div">
+        <form class="login-signup" action="/dashboard/login" method="POST">
+          <h1>Login</h1>
+          <div class="login-signup-inner-div">
+            <div class="login-signup-item">
+              <label for="exampleInputEmail1">Email address: </label>
+              <input type="email" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"/>
+            </div>
+            <div class="login-signup-item">
+              <label for="exampleInputPassword1" class="form-label">Password: </label>
+              <input type="password" id="exampleInputPassword1" name="password"/>
+            </div>
+          </div>
+          <button type="submit" class="submit-button">Submit</button>
+          <span>Don't have an account yet? <a href="/dashboard/signup">Sign Up</a> here.</span>
+        </form>
+
+    </div>
     </section>
   </div>
 </main>
+
+</body>
+</html>

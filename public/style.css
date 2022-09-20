@@ -68,15 +68,37 @@ body {
   padding: 15px;
   -moz-box-shadow: 0 0 10px 2px gray;
   -webkit-box-shadow: 0 0 10px 2px gray;
+  box-shadow: 0 0 10px 2px gray;
 }
 
 #sort-by {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
 }
 
-#sort-by h3 {
-  font-size: 1.2rem;
+.fa-filter {
+    color: black;
+    margin-bottom: 5px;
+}
+
+#filter-section {
+  width: 95%;
+  max-width: 700px;
+  height: 100px;
+  background: white;
+  border-radius: 5px;
+  -moz-box-shadow: 0 0 10px 2px gray;
+  -webkit-box-shadow: 0 0 10px 2px gray;
+  box-shadow: 0 0 10px 2px gray;
+  padding: 25px;
+}
+
+#sort-by h2 {
+  font-size: 1.8rem;
+  width: 100%;
+  text-align: center;
 }
 
 #sort-items {
@@ -367,6 +389,44 @@ input[type="checkbox"] {
 .selected-border {
   border: 5px solid black !important;
 }
+
+.login-signup-div {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-signup {
+  background: white;
+  width: 95%;
+  max-width: 700px;
+  padding: 25px;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  -moz-box-shadow: 0 0 10px 2px gray;
+  -webkit-box-shadow: 0 0 10px 2px gray;
+  box-shadow: 0 0 10px 2px gray;
+}
+
+.login-signup-item {
+  display: flex;
+  justify-content: space-between;
+}
+
+.login-signup-item label {
+  margin-right: 10px;
+}
+
+.login-signup button {
+  font-size: 1.5rem;
+  margin: 5px 0;
+}
+
 
 
 @media screen and (max-width: 750px) {
