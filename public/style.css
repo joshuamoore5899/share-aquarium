@@ -86,19 +86,56 @@ body {
 #filter-section {
   width: 95%;
   max-width: 700px;
-  height: 100px;
   background: white;
   border-radius: 5px;
   -moz-box-shadow: 0 0 10px 2px gray;
   -webkit-box-shadow: 0 0 10px 2px gray;
   box-shadow: 0 0 10px 2px gray;
   padding: 25px;
+  font-size: 1.5rem;
 }
 
-#sort-by h2 {
+#filter-form {
+  display: flex;
+  flex-direction: column;
+}
+
+#select-sort-by,
+#filterWaterType,
+option,
+select {
+  font-size: 1.5rem;
+}
+
+select {
+  margin: 5px 0;
+}
+
+#sort-by h2,
+#sort-by h3 {
   font-size: 1.8rem;
   width: 100%;
   text-align: center;
+  margin: 15px 0;
+}
+
+.sort-filter-div {
+  display: flex;
+  justify-content: center;
+}
+
+.sort-filter-item {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 300px;
+}
+
+.sort-filter-item label {
+  margin-right: 5px;
+}
+.sort-filter-item select {
+  width: 50%;
 }
 
 #sort-items {
