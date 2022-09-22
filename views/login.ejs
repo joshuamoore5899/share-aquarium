@@ -5,14 +5,14 @@
 <main class="container">
   <div class="row justify-content-center">
     <section class="col-6 mt-5">
-      <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
-      <div class="alert alert-danger"><%= el.msg %></div>
-      <% }) %> <% } %> <% if (locals.messages.info) { %> <%
-      messages.info.forEach( el => { %>
-      <div class="alert alert-info"><%= el.msg %></div>
-      <% }) %> <% } %>
       <div class="login-signup-div">
         <form class="login-signup" action="/dashboard/login" method="POST">
+          <% if (locals.messages.errors) { %> <% messages.errors.forEach( el => { %>
+          <div class="alert alert-danger" style="font-size:1.5rem"><%= el.msg %></div>
+          <% }) %> <% } %> <% if (locals.messages.info) { %> <%
+          messages.info.forEach( el => { %>
+          <div class="alert alert-info" style="font-size:1.5rem"><%= el.msg %></div>
+          <% }) %> <% } %>
           <h1>Login</h1>
           <div class="login-signup-inner-div">
             <div class="login-signup-item">
@@ -25,7 +25,7 @@
             </div>
           </div>
           <button type="submit" class="submit-button">Submit</button>
-          <span>Don't have an account yet? <a href="/dashboard/signup">Sign Up</a> here.</span>
+          <span style="font-size:1.5rem">Don't have an account yet? <a href="/dashboard/signup" style="font-size:1.5rem">Sign Up</a> here.</span>
         </form>
 
     </div>

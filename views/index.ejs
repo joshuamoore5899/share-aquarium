@@ -23,6 +23,7 @@
               </select>
             </div>
           </div>
+          <div>
             <h3>Filter</h3>
           </div>
           <div class="sort-filter-div">
@@ -85,7 +86,7 @@
       <section class="flex-basics bigger-text displays">
         <div class="display-container" data-id='<%=aquariums[i]._id%>'>
           <div class="full-width displays-divs">
-            <h2 class="bigger-text displays-items"><span class="bigger-text displays-items upper"><%= aquariums[i].name %></span></h2>
+            <h2 class="bigger-text displays-items"><span class="bigger-text displays-items upper"><%= aquariums[i].name %> - <%= aquariums[i].username %></span></h2>
           </div>
           <div class="full-width flex-basics main-pic">
             <img class="displays-items" src="<%= aquariums[i].images[0] %>" alt="Fish tank">

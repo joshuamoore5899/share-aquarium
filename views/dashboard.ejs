@@ -22,7 +22,7 @@
             <input type="number" id="liters" name="quantity[]" min="1" max="100000">
           </section>
           <section class="full-width form-sec">
-            <label class="bold">Add photos of your tank:</label><br>
+            <label class="bold">Add photos of your tank (limit 10):</label><br>
             <label for="myfile">Select files:</label>
             <input type="file" id="files" name="files" multiple>
           </section>
@@ -136,7 +136,7 @@
             </div>
           </div>
 
-          <section class="edit-section hidden full-width displays">
+          <section class="edit-section hidden full-width displays" data-id="<%= aquariums[i].id %>1">
             <form class="edit-form flex-basics" action="/dashboard/editAquarium/<%= aquariums[i].id %>?_method=PUT" enctype="multipart/form-data" method="POST">
               <div class="edit-header">
                 <h1 class="full-width center-text">Edit Your Aquarium</h1>
@@ -177,7 +177,7 @@
                 <% } %>
               </section>
               <section class="full-width form-sec">
-                <label class="bold">Add photos of your tank:</label><br>
+                <label class="bold">Add photos of your tank (limit 10):</label><br>
                 <label for="files">Select files:</label>
                 <input type="file" id="files" name="files" multiple>
               </section>

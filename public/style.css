@@ -3,7 +3,7 @@
   padding: 0;
   font-size: 10px;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Dosis', sans-serif;
 }
 
 a {
@@ -11,7 +11,8 @@ a {
 }
 
 body {
-  background: linear-gradient(to bottom, #08f5ec 0%, #070dfa 100%);
+  /* background: linear-gradient(to bottom, #08f5ec 0%, #070dfa 100%); */
+  background: #08f5ec;
   min-height:100vh;
 }
 
@@ -42,7 +43,7 @@ body {
 
 .regular-text {
   font-size: 1.8rem;
-  color: gray;
+  color: black;
 }
 
 .displays {
@@ -66,9 +67,9 @@ body {
   background: white;
   border-radius: 5px;
   padding: 15px;
-  -moz-box-shadow: 0 0 10px 2px gray;
-  -webkit-box-shadow: 0 0 10px 2px gray;
-  box-shadow: 0 0 10px 2px gray;
+  -moz-box-shadow: 0 0 10px 2px black;
+  -webkit-box-shadow: 0 0 10px 2px black;
+  box-shadow: 0 0 10px 2px black;
 }
 
 #sort-by {
@@ -88,9 +89,9 @@ body {
   max-width: 700px;
   background: white;
   border-radius: 5px;
-  -moz-box-shadow: 0 0 10px 2px gray;
-  -webkit-box-shadow: 0 0 10px 2px gray;
-  box-shadow: 0 0 10px 2px gray;
+  -moz-box-shadow: 0 0 10px 2px black;
+  -webkit-box-shadow: 0 0 10px 2px black;
+  box-shadow: 0 0 10px 2px black;
   padding: 25px;
   font-size: 1.5rem;
 }
@@ -322,9 +323,9 @@ textarea {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
-  -moz-box-shadow: 0 0 10px 2px gray;
-  -webkit-box-shadow: 0 0 10px 2px gray;
-  box-shadow: 0 0 10px 2px gray;
+  -moz-box-shadow: 0 0 10px 2px black;
+  -webkit-box-shadow: 0 0 10px 2px black;
+  box-shadow: 0 0 10px 2px black;
 }
 
 .hidden {
@@ -445,9 +446,9 @@ input[type="checkbox"] {
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  -moz-box-shadow: 0 0 10px 2px gray;
-  -webkit-box-shadow: 0 0 10px 2px gray;
-  box-shadow: 0 0 10px 2px gray;
+  -moz-box-shadow: 0 0 10px 2px black;
+  -webkit-box-shadow: 0 0 10px 2px black;
+  box-shadow: 0 0 10px 2px black;
 }
 
 .login-signup-item {

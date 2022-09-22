@@ -20,6 +20,7 @@ function showEdit() {
   try {
     if (aquariums.length === edits.length) {
       aquarium.classList.remove('hidden');
+      aquarium.scrollIntoView();
     }
   }
   catch (err) {
@@ -28,9 +29,11 @@ function showEdit() {
 }
 
 function closeEdit() {
+  const original = this.parentNode.parentNode.parentNode.parentNode;
   const aquarium = this.parentNode.parentNode.parentNode.parentNode.querySelector('.edit-section');
   try {
     aquarium.classList.add('hidden');
+    original.scrollIntoView();
   }
   catch (err) {
     console.error(err);

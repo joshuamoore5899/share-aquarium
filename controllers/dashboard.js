@@ -29,7 +29,7 @@ module.exports = {
       }
       let images = [];
       let imageID = [];
-      for (let i = 0; i < req.files.length; i++) {
+      for (let i = 0; i < req.files.length && i < 10; i++) {
         let result = await cloudinary.uploader.upload(req.files[i].path);
         images.push(result.secure_url);
         imageID.push(result.public_id);
@@ -46,6 +46,7 @@ module.exports = {
         fish: req.body.fish,
         likes: 0,
         user: req.user.id,
+        username: req.user.userName,
       });
       res.redirect('/dashboard');
     } catch (err) {
@@ -84,9 +85,11 @@ module.exports = {
       }
       console.log(req.files);
       for (let i = 0; i < req.files.length; i++) {
-        let result = await cloudinary.uploader.upload(req.files[i].path);
-        aquariumImages.push(result.secure_url);
-        aquariumCloudinary.push(result.public_id);
+        if (aquariumImages.length < 10) {
+          let result = await cloudinary.uploader.upload(req.files[i].path);
+          aquariumImages.push(result.secure_url);
+          aquariumCloudinary.push(result.public_id);
+        }
       }
       let tankSize;
       let measurementType;
