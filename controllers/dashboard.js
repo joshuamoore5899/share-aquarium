@@ -83,7 +83,6 @@ module.exports = {
         aquariumImages.splice(index, 1);
         aquariumCloudinary.splice(index, 1);
       }
-      console.log(req.files);
       for (let i = 0; i < req.files.length; i++) {
         if (aquariumImages.length < 10) {
           let result = await cloudinary.uploader.upload(req.files[i].path);

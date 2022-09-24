@@ -11,6 +11,7 @@ const connectDB = require('./config/database');
 require('dotenv').config({path: './config/.env'})
 const homeRoutes = require('./routes/home');
 const dashboardRoutes = require('./routes/dashboard');
+const profileRoutes = require('./routes/profile');
 
 require('./config/passport')(passport);
 
@@ -47,6 +48,7 @@ app.use(function(req, res, next) {
 
 app.use('/', homeRoutes);
 app.use('/dashboard', dashboardRoutes);
+app.use('/profile', profileRoutes);
 
 app.listen(process.env.PORT, ()=> {
   console.log(`Server is running on port ${process.env.PORT}`);

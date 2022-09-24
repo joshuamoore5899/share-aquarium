@@ -40,7 +40,7 @@ Array.from(likes).forEach((el)=> {
 
 //fetch request to update Likes
 async function addLike() {
-  const itemID = this.parentNode.parentNode.parentNode.parentNode.dataset.id;
+  const itemID = this.parentNode.parentNode.parentNode.parentNode.parentNode.dataset.id;
   try {
     let likes = await fetch('addLike', {
         method: 'put',
@@ -65,7 +65,7 @@ Array.from(images).forEach((el)=> {
 
 function changeMain() {
   const imageURL = this.dataset.url;
-  const mainPic = this.parentNode.parentNode.querySelector('.main-pic img');
+  const mainPic = this.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.main-pic img');
   try {
     mainPic.src=`${imageURL}`;
   }

@@ -15,10 +15,12 @@ Array.from(closeEditButtons).forEach((el)=> {
 })
 
 function showEdit() {
-  const aquarium = this.parentNode.parentNode.parentNode.querySelector('.edit-section');
+  const aquarium = this.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.edit-section');
+  console.log(aquarium)
   const aquariums = document.querySelectorAll('.hidden');
   try {
     if (aquariums.length === edits.length) {
+
       aquarium.classList.remove('hidden');
       aquarium.scrollIntoView();
     }
@@ -73,7 +75,7 @@ Array.from(images).forEach((el)=> {
 
 function changeMain() {
   const imageURL = this.dataset.url;
-  const mainPic = this.parentNode.parentNode.querySelector('.main-pic img');
+  const mainPic = this.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.main-pic img');
   try {
     mainPic.src=`${imageURL}`;
   }
@@ -89,7 +91,7 @@ Array.from(deleteImage).forEach((el)=> {
 
 function selectDelete() {
   const id = this.dataset.id;
-  const deleteImage = this.parentNode.parentNode.parentNode.querySelector('#deleteImages');
+  const deleteImage = this.parentNode.parentNode.parentNode.parentNode.querySelector('#deleteImages');
   const image = this.parentNode.querySelector('img');
   let current = deleteImage.value;
   try {

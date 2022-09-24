@@ -1,0 +1,68 @@
+<%- include('partials/header') -%>
+
+  <span>Tanks by <%= user %>
+
+  <section class="display-main">
+    <% for(let i=0; i < aquariums.length; i++) {%>
+      <section class="display-section" data-id='<%=aquariums[i]._id%>'>
+
+        <div class="display-half">
+
+          <div class="main-pic-likes">
+            <div class="main-pic">
+              <img class="main-pic-img" src="<%= aquariums[i].images[0] %>" alt="Fish tank">
+            </div>
+            <div id="likes">
+              <div>
+                <% if (currentUser) { %>
+                  <% if(aquariums[i].liked.includes(currentUser.id)) { %>
+                    <i class="fa fa-solid fa-thumbs-up fa-2x like-btn" style="color:teal"></i>
+                    <span class="icon-text" style="color:teal">Likes: <%= aquariums[i].likes %></span>
+                  <% } else { %>
+                    <i class="fa fa-solid fa-thumbs-up fa-2x like-btn"></i>
+                    <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
+                  <% } %>
+                <% } else { %>
+                  <i class="fa fa-solid fa-thumbs-up fa-2x"></i>
+                  <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
+                <% } %>
+              </div>
+              <% if (!currentUser) { %>
+                <span class="like-no-user"><a href="/dashboard/login" style="color:red; font-size:1.3rem;">Must be signed in to like posts</a></span>
+              <% } %>
+            </div>
+          </div>
+        </div>
+
+        <div class="display-half">
+          <div class="info-half">
+            <div>
+              <h2 class="display-header"><%= aquariums[i].name %> - <a href="/profile/<%= aquariums[i].user %>"><%= aquariums[i].username %></a></h2>
+            </div>
+            <hr>
+            <div class="main-pic-icons">
+              <div>
+                <% for (let j = 0; j < aquariums[i].images.length; j++) { %>
+                  <img class="img-icons" src="<%= aquariums[i].images[j] %>" data-url="<%= aquariums[i].images[j] %>">
+                <% } %>
+              </div>
+            </div>
+            <div>
+              <h3 class="display-info" style="text-transform:uppercase"><%= aquariums[i].tankSize %> <%= aquariums[i].measurementType %>, <%= aquariums[i].waterType %> water</h3>
+            </div>
+            <hr>
+            <div>
+              <h3 class="display-info"><%= aquariums[i].description %></h3>
+            </div>
+            <div class="bubble-div">
+              <% for (let k = 0; k < aquariums[i].fish.length; k++) { %>
+                <span class="fish-bubble"><%= aquariums[i].fish[k] %></span>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </section>
+    <% } %>
+  </section>
+
+  <script src="/profile.js"></script>

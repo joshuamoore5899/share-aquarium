@@ -4,135 +4,140 @@
 
     <a class="btn share-btn" href="/dashboard"><button class="btn share-btn">SHARE YOUR AQUARIUM</button></a>
 
-    <section id="sort-by" class="full-width">
-      <div id="sort-items" class="full-width">
+    <section id="sort-by">
+      <div id="sort-items">
         <i class="fa-solid fa-filter fa-2x"></i>
       </div>
-      <section id="filter-section" class="hidden full-width">
+      <section id="filter-section" class="hidden">
         <form id="filter-form" action="/filter" method="POST">
-          <h3>Sort</h3>
-          <div class="sort-filter-div">
-            <div class="sort-filter-item">
-              <label for="selectSortBy">Sort By: </label>
-              <select id="selectSortBy" name="selectSortBy">
-                <option value="new">New</option>
-                <option value="old">Old</option>
-                <option value="liked">Most Liked</option>
-                <option value="big">Tank Size - Big</option>
-                <option value="small">Tank Size - Small</option>
-              </select>
+          <div class="filter-half">
+            <h3>Sort</h3>
+            <div class="sort-filter-div">
+              <div class="sort-filter-item">
+                <label for="selectSortBy">Sort By: </label>
+                <select id="selectSortBy" name="selectSortBy">
+                  <option value="new">New</option>
+                  <option value="old">Old</option>
+                  <option value="liked">Most Liked</option>
+                  <option value="big">Tank Size - Big</option>
+                  <option value="small">Tank Size - Small</option>
+                </select>
+              </div>
             </div>
           </div>
-          <div>
+          <div class="filter-half">
             <h3>Filter</h3>
-          </div>
-          <div class="sort-filter-div">
-            <div class="sort-filter-item">
-              <label for="filterWaterType">Water Type: </label>
-              <select id="filterWaterType" name="filterWaterType">
-                <option value="both">Both</option>
-                <option value="fresh">Fresh</option>
-                <option value="salt">Salt</option>
-              </select>
+            <div class="sort-filter-div">
+              <div class="sort-filter-item">
+                <label for="filterWaterType">Water Type: </label>
+                <select id="filterWaterType" name="filterWaterType">
+                  <option value="both">Both</option>
+                  <option value="fresh">Fresh</option>
+                  <option value="salt">Salt</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="sort-filter-div">
-            <div class="sort-filter-item">
-              <label for="filterDate">Posted: </label>
-              <select id="filterDate" name="filterDate">
-                <option value="all">All Time</option>
-                <option value="year">Year</option>
-                <option value="3months">3 Months</option>
-                <option value="1month">Month</option>
-                <option value="1week">Week</option>
-                <option value="24hours">24 Hours</option>
-              </select>
+            <div class="sort-filter-div">
+              <div class="sort-filter-item">
+                <label for="filterDate">Posted: </label>
+                <select id="filterDate" name="filterDate">
+                  <option value="all">All Time</option>
+                  <option value="year">Year</option>
+                  <option value="3months">3 Months</option>
+                  <option value="1month">Month</option>
+                  <option value="1week">Week</option>
+                  <option value="24hours">24 Hours</option>
+                </select>
+              </div>
             </div>
-          </div>
-          <div class="sort-filter-div">
-            <div class="sort-filter-item">
-              <label for="filterFish">Fish: </label>
-              <select id="filterFish" name="filterFish">
-                <option value="all">Any</option>
-                <option value="angelfish">Angelfish</option>
-                <option value="guppies">Guppies</option>
-                <option value="mollies">Mollies</option>
-                <option value="platies">Platies</option>
-                <option value="goldfish">Goldfish</option>
-                <option value="africancichlids">African Cichlids</option>
-                <option value="americancichlids">American Cichlids</option>
-                <option value="tetras">Tetras</option>
-                <option value="barbs">Barbs</option>
-                <option value="catfish">Catfish</option>
-              </select>
+            <div class="sort-filter-div">
+              <div class="sort-filter-item">
+                <label for="filterFish">Fish: </label>
+                <select id="filterFish" name="filterFish">
+                  <option value="all">Any</option>
+                  <option value="angelfish">Angelfish</option>
+                  <option value="guppies">Guppies</option>
+                  <option value="mollies">Mollies</option>
+                  <option value="platies">Platies</option>
+                  <option value="goldfish">Goldfish</option>
+                  <option value="africancichlids">African Cichlids</option>
+                  <option value="americancichlids">American Cichlids</option>
+                  <option value="tetras">Tetras</option>
+                  <option value="barbs">Barbs</option>
+                  <option value="catfish">Catfish</option>
+                </select>
+              </div>
             </div>
           </div>
           <input class="submit-button" type="submit" value="Submit">
         </form>
       </section>
+    </section>
 
-      <!-- <section id="sort-items">
-        <h3>Sort By: </h3>
-        <span id="first-sort" class="sort-items" data-id="new"><a href="/new">New</a></span>
-        <span class="sort-items" data-id="old"><a href="/old">Old</a></span>
-        <span class="sort-items" data-id="liked"><a href="/liked">Liked</a></span>
-        <span class="sort-items" data-id="big"><a href="/big">Tank Size Big</a></span>
-        <span class="sort-items" data-id="small"><a href="/small">Tank Size Small</a></span>
-      </section> -->
+    <section class="display-main">
+      <% for(let i=0; i < aquariums.length; i++) {%>
+        <section class="display-section" data-id='<%=aquariums[i]._id%>'>
+
+          <div class="display-half">
+
+            <div class="main-pic-likes">
+              <div class="main-pic">
+                <img class="main-pic-img" src="<%= aquariums[i].images[0] %>" alt="Fish tank">
+              </div>
+              <div id="likes">
+                <div>
+                  <% if (currentUser) { %>
+                    <% if(aquariums[i].liked.includes(currentUser.id)) { %>
+                      <i class="fa fa-solid fa-thumbs-up fa-2x like-btn" style="color:teal"></i>
+                      <span class="icon-text" style="color:teal">Likes: <%= aquariums[i].likes %></span>
+                    <% } else { %>
+                      <i class="fa fa-solid fa-thumbs-up fa-2x like-btn"></i>
+                      <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
+                    <% } %>
+                  <% } else { %>
+                    <i class="fa fa-solid fa-thumbs-up fa-2x"></i>
+                    <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
+                  <% } %>
+                </div>
+                <% if (!currentUser) { %>
+                  <span class="like-no-user"><a href="/dashboard/login" style="color:red; font-size:1.3rem;">Must be signed in to like posts</a></span>
+                <% } %>
+              </div>
+            </div>
+          </div>
+
+          <div class="display-half">
+            <div class="info-half">
+              <div>
+                <h2 class="display-header"><%= aquariums[i].name %> - <a href="/profile/<%= aquariums[i].username %>"><%= aquariums[i].username %></a></h2>
+              </div>
+              <hr>
+              <div class="main-pic-icons">
+                <div>
+                  <% for (let j = 0; j < aquariums[i].images.length; j++) { %>
+                    <img class="img-icons" src="<%= aquariums[i].images[j] %>" data-url="<%= aquariums[i].images[j] %>">
+                  <% } %>
+                </div>
+              </div>
+              <div>
+                <h3 class="display-info" style="text-transform:uppercase"><%= aquariums[i].tankSize %> <%= aquariums[i].measurementType %>, <%= aquariums[i].waterType %> water</h3>
+              </div>
+              <hr>
+              <div>
+                <h3 class="display-info"><%= aquariums[i].description %></h3>
+              </div>
+              <div class="bubble-div">
+                <% for (let k = 0; k < aquariums[i].fish.length; k++) { %>
+                  <span class="fish-bubble"><%= aquariums[i].fish[k] %></span>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </section>
+      <% } %>
     </section>
 
 
-    <% for(let i=0; i < aquariums.length; i++) {%>
-      <section class="flex-basics bigger-text displays">
-        <div class="display-container" data-id='<%=aquariums[i]._id%>'>
-          <div class="full-width displays-divs">
-            <h2 class="bigger-text displays-items"><span class="bigger-text displays-items upper"><%= aquariums[i].name %> - <%= aquariums[i].username %></span></h2>
-          </div>
-          <div class="full-width flex-basics main-pic">
-            <img class="displays-items" src="<%= aquariums[i].images[0] %>" alt="Fish tank">
-          </div>
-          <div class="full-width displays-divs flex-basics">
-            <% for (let j = 0; j < aquariums[i].images.length; j++) { %>
-              <img class="img-icons" src="<%= aquariums[i].images[j] %>" data-url="<%= aquariums[i].images[j] %>">
-            <% } %>
-          </div>
-
-
-
-          <div class="displays-divs">
-            <div class="full-width displays-items" id="likes">
-              <div>
-                <% if (currentUser) { %>
-                  <% if(aquariums[i].liked.includes(currentUser.id)) { %>
-                    <i class="fa fa-solid fa-thumbs-up fa-2x like-btn" style="color:blue"></i>
-                  <% } else { %>
-                    <i class="fa fa-solid fa-thumbs-up fa-2x like-btn"></i>
-                  <% } %>
-                <% } else { %>
-                  <i class="fa fa-solid fa-thumbs-up fa-2x"></i>
-                <% } %>
-                <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
-              </div>
-              <% if (!currentUser) { %>
-                <span class="like-no-user"><a href="/dashboard/login">Must be signed in to like posts</a></span>
-              <% } %>
-            </div>
-          </div>
-          <div class="full-width displays-divs">
-            <hr class="displays-items">
-          </div>
-          <div class="full-width displays-divs">
-            <h3 class="regular-text displays-items">Tank: <span class="regular-text displays-items" style="text-transform:uppercase"><%= aquariums[i].tankSize %> <%= aquariums[i].measurementType %>, <%= aquariums[i].waterType %> water</span></h3>
-          </div>
-          <div class="full-width displays-divs">
-            <h3 class="regular-text displays-items"><span class="regular-text displays-items"><%= aquariums[i].description %></span></h3>
-          </div>
-        </div>
-      </section>
-    <% } %>
-
-
-    <%- include('partials/footer') -%>
 
     <script src="main.js"></script>
   </body>
