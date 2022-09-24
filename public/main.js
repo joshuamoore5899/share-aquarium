@@ -1,6 +1,7 @@
 //Get the button:
 const mybutton = document.getElementById("myBtn");
 const likes = document.querySelectorAll('.like-btn');
+const saves = document.querySelectorAll('.save-btn');
 const images = document.querySelectorAll('.img-icons');
 document.querySelector('.fa-filter').addEventListener('click', showFilter);
 
@@ -40,7 +41,7 @@ Array.from(likes).forEach((el)=> {
 
 //fetch request to update Likes
 async function addLike() {
-  const itemID = this.parentNode.parentNode.parentNode.parentNode.parentNode.dataset.id;
+  const itemID = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.dataset.id;
   try {
     let likes = await fetch('addLike', {
         method: 'put',
@@ -50,6 +51,32 @@ async function addLike() {
         })
     })
     const data = await likes.json();
+    location.reload();
+  }
+  catch(err) {
+    console.log('here')
+    console.error(err);
+  }
+}
+
+//save button event listeners
+Array.from(saves).forEach((el)=> {
+  el.addEventListener('click', saveAquarium)
+})
+
+//fetch request to save
+async function saveAquarium() {
+  console.log('Hello')
+  const itemID = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.dataset.id;
+  try {
+    let saves = await fetch('saveAquarium', {
+        method: 'put',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify({
+            'itemID': itemID
+        })
+    })
+    const data = await saves.json();
     location.reload();
   }
   catch(err) {

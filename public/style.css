@@ -312,8 +312,13 @@ select {
   margin-right: 10px;
 }
 
-.like-btn {
+.like-btn,
+.fa-bookmark {
   cursor: pointer;
+}
+
+.fa-bookmark {
+  margin-left: 5px;
 }
 
 .icon-text {

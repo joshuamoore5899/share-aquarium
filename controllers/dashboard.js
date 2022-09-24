@@ -5,8 +5,10 @@ module.exports = {
   getDashboard: async (req, res) => {
     try {
       const aquariums = await Aquarium.find({ user: req.user.id });
-      res.render('dashboard.ejs', { aquariums: aquariums, user: req.user})
-    } catch (e) {
+      const savedAquariums = await Aquarium.find({ saved: req.user.id });
+      res.render('dashboard.ejs', { aquariums: aquariums, savedAquariums: savedAquariums, user: req.user});
+    }
+    catch (e) {
       console.error(e);
     }
   },

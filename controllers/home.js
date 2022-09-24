@@ -265,4 +265,25 @@ module.exports = {
       console.error(err);
     }
   },
+  saveAquarium: async (req, res)=> {
+    try {
+      const aquarium = await Aquarium.findOne({_id:req.body.itemID}).lean();
+      let array = aquarium.saved;
+      if (array.includes(req.user.id)) {
+        let start = array.slice(0, array.indexOf(req.user.id));
+        let end = array.slice(array.indexOf(req.user.id) + 1, array.length);
+        array = start.concat(end);
+      }
+      else {
+        array.push(req.user.id);
+      }
+      await Aquarium.findOneAndUpdate({_id:req.body.itemID},{
+        saved: array,
+      })
+      res.json('Saved Aquarium');
+    }
+    catch(err) {
+      console.error(err);
+    }
+  },
 }

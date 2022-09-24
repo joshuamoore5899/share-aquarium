@@ -85,23 +85,41 @@
                 <img class="main-pic-img" src="<%= aquariums[i].images[0] %>" alt="Fish tank">
               </div>
               <div id="likes">
-                <div>
-                  <% if (currentUser) { %>
-                    <% if(aquariums[i].liked.includes(currentUser.id)) { %>
-                      <i class="fa fa-solid fa-thumbs-up fa-2x like-btn" style="color:teal"></i>
-                      <span class="icon-text" style="color:teal">Likes: <%= aquariums[i].likes %></span>
+                <div style="display:flex; justify-content:space-between; align-items:center;">
+                  <div>
+                    <% if (currentUser) { %>
+                      <% if(aquariums[i].liked.includes(currentUser.id)) { %>
+                        <i class="fa fa-solid fa-thumbs-up fa-2x like-btn" style="color:teal"></i>
+                        <span class="icon-text" style="color:teal">Likes: <%= aquariums[i].likes %></span>
+                      <% } else { %>
+                        <i class="fa fa-solid fa-thumbs-up fa-2x like-btn"></i>
+                        <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
+                      <% } %>
                     <% } else { %>
-                      <i class="fa fa-solid fa-thumbs-up fa-2x like-btn"></i>
+                      <i class="fa fa-solid fa-thumbs-up fa-2x"></i>
                       <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
                     <% } %>
-                  <% } else { %>
-                    <i class="fa fa-solid fa-thumbs-up fa-2x"></i>
-                    <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
-                  <% } %>
+                  </div>
+                  <div>
+                    <% if (currentUser) { %>
+                      <% if(aquariums[i].saved.includes(currentUser.id)) { %>
+                        <span class="icon-text" style="color:teal">Aquarium Saved</span>
+                        <i class="fa-solid fa-bookmark fa-2x save-btn" style="color:teal"></i>
+                      <% } else { %>
+                        <span class="icon-text">Save Aquarium</span>
+                        <i class="fa-solid fa-bookmark fa-2x save-btn"></i>
+                      <% } %>
+                    <% } else { %>
+                      <span class="icon-text">Save Aquarium</span>
+                      <i class="fa-solid fa-bookmark fa-2x"></i>
+                    <% } %>
+
+                  </div>
                 </div>
                 <% if (!currentUser) { %>
-                  <span class="like-no-user"><a href="/dashboard/login" style="color:red; font-size:1.3rem;">Must be signed in to like posts</a></span>
+                  <span class="like-no-user"><a href="/dashboard/login" style="color:red; font-size:1.3rem;">Must be signed in to like and save posts</a></span>
                 <% } %>
+
               </div>
             </div>
           </div>
