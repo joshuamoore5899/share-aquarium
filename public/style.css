@@ -342,10 +342,42 @@ select {
 
 /*dashboard page*/
 
+#selection {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+#share-sec {
+  margin-top: 25px;
+}
+
+.selection-buttons {
+  margin: 10px 15px;
+  font-size: 2rem;
+  background: teal;
+  color: white;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.selection-buttons:hover {
+  color: #08f5ec;
+  -moz-box-shadow: 0 0 5px 1px black;
+  -webkit-box-shadow: 0 0 5px 1px black;
+  box-shadow: 0 0 5px 1px black;
+}
+
+.selection-buttons:active {
+  color: purple;
+}
+
 .share-wrapper {
   display: flex;
   justify-content: center;
   width: 100%;
+  margin-bottom: 25px;
 }
 
 .icon-form {
@@ -540,6 +572,12 @@ select {
   .display-half {
     width: 100%;
   }
+
+  #selection {
+    flex-direction: column;
+  }
+
+
 }
 
 

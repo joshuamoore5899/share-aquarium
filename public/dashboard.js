@@ -5,6 +5,39 @@ const wrapper = document.querySelector('#dashboard-wrapper');
 const edits = document.querySelectorAll('.edit-section');
 const images = document.querySelectorAll('.img-icons');
 const deleteImage = document.querySelectorAll('.img-cover');
+const share = document.querySelector('#share');
+const shared = document.querySelector('#shared');
+const saved = document.querySelector('#saved');
+const sharesec = document.querySelector('#share-sec');
+const sharedsec = document.querySelector('#shared-sec');
+const savedsec = document.querySelector('#saved-sec');
+
+//open share
+share.addEventListener('click', showShare);
+
+function showShare() {
+  sharesec.classList.toggle('hidden');
+  sharedsec.classList.add('hidden');
+  savedsec.classList.add('hidden');
+}
+
+//open shared
+shared.addEventListener('click', showShared);
+
+function showShared() {
+  sharedsec.classList.toggle('hidden');
+  sharesec.classList.add('hidden');
+  savedsec.classList.add('hidden');
+}
+
+//open saved
+saved.addEventListener('click', showSaved);
+
+function showSaved() {
+  savedsec.classList.toggle('hidden');
+  sharesec.classList.add('hidden');
+  sharedsec.classList.add('hidden');
+}
 
 Array.from(editButtons).forEach((el)=> {
   el.addEventListener('click', showEdit);
