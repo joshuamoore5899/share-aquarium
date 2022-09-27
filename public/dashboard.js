@@ -11,6 +11,7 @@ const saved = document.querySelector('#saved');
 const sharesec = document.querySelector('#share-sec');
 const sharedsec = document.querySelector('#shared-sec');
 const savedsec = document.querySelector('#saved-sec');
+const saves = document.querySelectorAll('.save-btn');
 
 //open share
 share.addEventListener('click', showShare);
@@ -52,11 +53,8 @@ function showEdit() {
   console.log(aquarium)
   const aquariums = document.querySelectorAll('.hidden');
   try {
-    if (aquariums.length === edits.length) {
-
-      aquarium.classList.remove('hidden');
-      aquarium.scrollIntoView();
-    }
+    aquarium.classList.remove('hidden');
+    aquarium.scrollIntoView();
   }
   catch (err) {
     console.error(err);
@@ -83,7 +81,7 @@ Array.from(likes).forEach((el)=> {
 
 //fetch request to update Likes
 async function addLike() {
-  const itemID = this.parentNode.parentNode.parentNode.parentNode.dataset.id;
+  const itemID = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.dataset.id;
   try {
     let likes = await fetch('addLike', {
         method: 'put',
@@ -140,5 +138,31 @@ function selectDelete() {
   }
   catch (err) {
     console.error(err)
+  }
+}
+
+//save button event listeners
+Array.from(saves).forEach((el)=> {
+  el.addEventListener('click', saveAquarium)
+})
+
+//fetch request to save
+async function saveAquarium() {
+  console.log('Hello')
+  const itemID = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.dataset.id;
+  try {
+    let saves = await fetch('saveAquarium', {
+        method: 'put',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify({
+            'itemID': itemID
+        })
+    })
+    const data = await saves.json();
+    location.reload();
+  }
+  catch(err) {
+    console.log('here')
+    console.error(err);
   }
 }

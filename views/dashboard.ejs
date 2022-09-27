@@ -117,21 +117,24 @@
                     <img class="main-pic-img" src="<%= aquariums[i].images[0] %>" alt="Fish tank">
                   </div>
                   <div id="likes">
-                    <% if(aquariums[i].liked.includes(currentUser.id)) { %>
-                      <i class="fa fa-solid fa-thumbs-up fa-2x" style="color:teal"></i>
-                      <span class="icon-text" style="color:teal">Likes: <%= aquariums[i].likes %></span>
-                    <% } else { %>
-                      <i class="fa fa-solid fa-thumbs-up fa-2x"></i>
-                      <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
-                    <% } %>
+                    <div>
+                      <% if(aquariums[i].liked.includes(currentUser.id)) { %>
+                        <i class="fa fa-solid fa-thumbs-up fa-2x like-btn" style="color:teal"></i>
+                        <span class="icon-text" style="color:teal">Likes: <%= aquariums[i].likes %></span>
+                      <% } else { %>
+                        <i class="fa fa-solid fa-thumbs-up fa-2x like-btn"></i>
+                        <span class="icon-text">Likes: <%= aquariums[i].likes %></span>
+                      <% } %>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="display-half">
                 <div class="info-half">
-                  <div>
-                    <h2 class="display-header"><%= aquariums[i].name %> - <%= aquariums[i].username %></h2>
+                  <div style="display:flex; width:100%; justify-content:space-between;">
+                    <h2 class="display-header"><%= aquariums[i].name %></h2>
+                    <a href="/profile/<%= aquariums[i].username %>" class="profile-link"><%= aquariums[i].username %></a>
                   </div>
                   <hr>
                   <div class="main-pic-icons">
@@ -352,21 +355,46 @@
                     <img class="main-pic-img" src="<%= savedAquariums[i].images[0] %>" alt="Fish tank">
                   </div>
                   <div id="likes">
-                    <% if(savedAquariums[i].liked.includes(currentUser.id)) { %>
-                      <i class="fa fa-solid fa-thumbs-up fa-2x" style="color:teal"></i>
-                      <span class="icon-text" style="color:teal">Likes: <%= savedAquariums[i].likes %></span>
-                    <% } else { %>
-                      <i class="fa fa-solid fa-thumbs-up fa-2x"></i>
-                      <span class="icon-text">Likes: <%= savedAquariums[i].likes %></span>
-                    <% } %>
+                    <div style="display:flex; justify-content:space-between; align-items:center;">
+                      <div>
+                        <% if (currentUser) { %>
+                          <% if(savedAquariums[i].liked.includes(currentUser.id)) { %>
+                            <i class="fa fa-solid fa-thumbs-up fa-2x like-btn" style="color:teal"></i>
+                            <span class="icon-text" style="color:teal">Likes: <%= savedAquariums[i].likes %></span>
+                          <% } else { %>
+                            <i class="fa fa-solid fa-thumbs-up fa-2x like-btn"></i>
+                            <span class="icon-text">Likes: <%= savedAquariums[i].likes %></span>
+                          <% } %>
+                        <% } else { %>
+                          <i class="fa fa-solid fa-thumbs-up fa-2x"></i>
+                          <span class="icon-text">Likes: <%= savedAquariums[i].likes %></span>
+                        <% } %>
+                      </div>
+                      <div>
+                        <% if (currentUser) { %>
+                          <% if(savedAquariums[i].saved.includes(currentUser.id)) { %>
+                            <span class="icon-text" style="color:teal">Aquarium Saved</span>
+                            <i class="fa-solid fa-bookmark fa-2x save-btn" style="color:teal"></i>
+                          <% } else { %>
+                            <span class="icon-text">Save Aquarium</span>
+                            <i class="fa-solid fa-bookmark fa-2x save-btn"></i>
+                          <% } %>
+                        <% } else { %>
+                          <span class="icon-text">Save Aquarium</span>
+                          <i class="fa-solid fa-bookmark fa-2x"></i>
+                        <% } %>
+
+                      </div>
+                    </div>
                   </div>
                 </div>
               </div>
 
               <div class="display-half">
                 <div class="info-half">
-                  <div>
-                    <h2 class="display-header"><%= savedAquariums[i].name %> - <%= savedAquariums[i].username %></h2>
+                  <div style="display:flex; width:100%; justify-content:space-between;">
+                    <h2 class="display-header"><%= savedAquariums[i].name %></h2>
+                    <a href="/profile/<%= savedAquariums[i].username %>" class="profile-link"><%= savedAquariums[i].username %></a>
                   </div>
                   <hr>
                   <div class="main-pic-icons">

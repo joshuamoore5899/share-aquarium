@@ -558,6 +558,15 @@ select {
   margin: 5px 0;
 }
 
+.profile-link {
+  text-decoration: underline;
+  font-size: 2rem;
+  padding: 5px 15px 7px 15px;
+  background: teal;
+  border-radius: 18px;
+  color: white;
+}
+
 /*media queries*/
 @media screen and (max-width: 850px) {
   #filter-form {

@@ -126,8 +126,9 @@
 
           <div class="display-half">
             <div class="info-half">
-              <div>
-                <h2 class="display-header"><%= aquariums[i].name %> - <a href="/profile/<%= aquariums[i].username %>"><%= aquariums[i].username %></a></h2>
+              <div style="display:flex; width:100%; justify-content:space-between;">
+                <h2 class="display-header"><%= aquariums[i].name %></h2>
+                <a href="/profile/<%= aquariums[i].username %>" class="profile-link"><%= aquariums[i].username %></a>
               </div>
               <hr>
               <div class="main-pic-icons">
