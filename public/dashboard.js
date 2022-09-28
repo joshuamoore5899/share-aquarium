@@ -50,7 +50,6 @@ Array.from(closeEditButtons).forEach((el)=> {
 
 function showEdit() {
   const aquarium = this.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.edit-section');
-  console.log(aquarium)
   const aquariums = document.querySelectorAll('.hidden');
   try {
     aquarium.classList.remove('hidden');
@@ -148,7 +147,6 @@ Array.from(saves).forEach((el)=> {
 
 //fetch request to save
 async function saveAquarium() {
-  console.log('Hello')
   const itemID = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.dataset.id;
   try {
     let saves = await fetch('saveAquarium', {

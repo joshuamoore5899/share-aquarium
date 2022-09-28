@@ -4,6 +4,15 @@
 
     <a class="btn share-btn" href="/dashboard"><button class="btn share-btn">SHARE YOUR AQUARIUM</button></a>
 
+    <div class="zoom-wrapper hidden">
+      <div class="minimize-div">
+        <i class="fas fa-circle-xmark fa-2x main-pic-minimize"></i>
+      </div>
+      <div class="zoom-div">
+        <img id="zoom-pic" src="#">
+      </div>
+    </div>
+
     <section id="sort-by">
       <div id="sort-items">
         <i class="fa-solid fa-filter fa-2x"></i>
@@ -82,7 +91,7 @@
 
             <div class="main-pic-likes">
               <div class="main-pic">
-                <img class="main-pic-img" src="<%= aquariums[i].images[0] %>" alt="Fish tank">
+                <img class="main-pic-img" src="<%= aquariums[i].images[0] %>" data-url="<%= aquariums[i].images[0] %>" alt="Fish tank">
               </div>
               <div id="likes">
                 <div style="display:flex; justify-content:space-between; align-items:center;">
@@ -126,7 +135,7 @@
 
           <div class="display-half">
             <div class="info-half">
-              <div style="display:flex; width:100%; justify-content:space-between;">
+              <div class="display-name-user">
                 <h2 class="display-header"><%= aquariums[i].name %></h2>
                 <a href="/profile/<%= aquariums[i].username %>" class="profile-link"><%= aquariums[i].username %></a>
               </div>

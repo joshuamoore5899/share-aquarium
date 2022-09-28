@@ -16,12 +16,52 @@ body {
 }
 
 /*header*/
+
+.zoom-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 15;
+    position: fixed;
+    top: 0;
+}
+
+.minimize-div {
+  background: black;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.main-pic-minimize {
+  color: white;
+  margin: 10px;
+  z-index: 25;
+}
+
+.zoom-div {
+    width: 100vw;
+    height: 100vh;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+#zoom-pic {
+  max-width: 95%;
+  max-height: 95%;
+  margin-top: -50px;
+}
+
 #myBtn {
   display: none; /* Hidden by default */
   position: fixed; /* Fixed/sticky position */
   bottom: 110px; /* Place the button at the bottom of the page */
   right: 10px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
+  z-index: 10; /* Make sure it does not overlap */
 }
 
 .hidden {
@@ -99,6 +139,45 @@ nav a:hover {
   position: fixed;
   bottom: 40px;
   right: 10px;
+}
+
+.sec-header {
+  display: flex;
+  justify-content: center;
+}
+
+.sec-header h1 {
+  text-align: center;
+  width: 95%;
+  max-width: 300px;
+  background: teal;
+  font-size: 3rem;
+  margin: 10px 15px;
+  font-size: 2rem;
+  color: white;
+  padding: 10px 15px;
+  text-transform: uppercase;
+}
+
+.display-name-user {
+  display:flex;
+  width:100%;
+  justify-content:space-between;
+}
+
+.display-name-user a:hover {
+  color: #08f5ec;
+  -moz-box-shadow: 0 0 10px 2px black;
+  -webkit-box-shadow: 0 0 10px 2px black;
+  box-shadow: 0 0 10px 2px black;
+}
+
+.display-name-user a:active {
+  color: purple;
+}
+
+.main-pic-img {
+  cursor: pointer;
 }
 
 
@@ -419,6 +498,7 @@ select {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 25px;
   -moz-box-shadow: 0 0 10px 2px black;
   -webkit-box-shadow: 0 0 10px 2px black;
   box-shadow: 0 0 10px 2px black;
@@ -568,12 +648,25 @@ select {
 }
 
 /*media queries*/
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 1000px) {
   #filter-form {
     flex-direction: column;
     align-items: center;
   }
+
+  #filter-section,
+  #sort-items,
+  .edit-section,
+  .share-section {
+    width: 95%;
+  }
+
+  .edit-form {
+    width: 90%;
+  }
+
   .display-section {
+    width: 95%;
     flex-direction: column;
     align-items: center;
   }
@@ -590,7 +683,7 @@ select {
 }
 
 
-@media screen and (max-width: 350px) {
+@media screen and (max-width: 400px) {
   header nav {
     display: flex;
     flex-direction: column;

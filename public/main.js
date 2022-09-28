@@ -3,7 +3,20 @@ const mybutton = document.getElementById("myBtn");
 const likes = document.querySelectorAll('.like-btn');
 const saves = document.querySelectorAll('.save-btn');
 const images = document.querySelectorAll('.img-icons');
+const mainImgs = document.querySelectorAll('.main-pic-img');
+const zoomImg = document.querySelector('#zoom-pic');
+const zoomDiv = document.querySelector('.zoom-wrapper');
 document.querySelector('.fa-filter').addEventListener('click', showFilter);
+document.querySelector('.main-pic-minimize').addEventListener('click', closeZoom);
+
+function closeZoom() {
+  try {
+    zoomDiv.classList.add('hidden');
+  }
+  catch (err) {
+    console.error(err);
+  }
+}
 
 function showFilter() {
   try {
@@ -14,6 +27,8 @@ function showFilter() {
     console.error(err)
   }
 }
+
+
 
 
 
@@ -32,6 +47,24 @@ function scrollFunction() {
 function topFunction() {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+
+
+//main pic event listeners
+Array.from(mainImgs).forEach((el)=> {
+  el.addEventListener('click', zoomPic)
+})
+
+function zoomPic() {
+  const picUrl = this.dataset.url;
+  const picDiv = zoomImg.parentNode.parentNode;
+  try {
+    zoomImg.src = `${picUrl}`;
+    picDiv.classList.remove('hidden');
+  }
+  catch (err) {
+    console.error(err);
+  }
 }
 
 //like button event listeners
@@ -66,7 +99,6 @@ Array.from(saves).forEach((el)=> {
 
 //fetch request to save
 async function saveAquarium() {
-  console.log('Hello')
   const itemID = this.parentNode.parentNode.parentNode.parentNode.parentNode.parentNode.dataset.id;
   try {
     let saves = await fetch('saveAquarium', {
@@ -95,6 +127,7 @@ function changeMain() {
   const mainPic = this.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.main-pic img');
   try {
     mainPic.src=`${imageURL}`;
+    mainPic.setAttribute('data-url', imageURL);
   }
   catch (err) {
     console.error(err);

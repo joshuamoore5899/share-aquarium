@@ -105,6 +105,9 @@
         </div>
 
       <section id="shared-sec" class="display-main hidden">
+        <% if(aquariums.length < 1) { %>
+          <span style="font-size:2rem;">You haven't shared any aquariums yet</span>
+        <% } %>
 
         <% for(let i=0; i < aquariums.length; i++) {%>
           <div style="display:flex; flex-direction:column; align-items:center;" data-id='<%=aquariums[i]._id%>'>
@@ -132,7 +135,7 @@
 
               <div class="display-half">
                 <div class="info-half">
-                  <div style="display:flex; width:100%; justify-content:space-between;">
+                  <div class="display-name-user">
                     <h2 class="display-header"><%= aquariums[i].name %></h2>
                     <a href="/profile/<%= aquariums[i].username %>" class="profile-link"><%= aquariums[i].username %></a>
                   </div>
@@ -345,6 +348,9 @@
       </section>
 
       <section id="saved-sec" class="display-main hidden">
+        <% if(savedAquariums.length < 1) { %>
+          <span style="font-size:2rem;">You haven't saved any aquariums yet</span>
+        <% } %>
         <% for(let i=0; i < savedAquariums.length; i++) {%>
             <section class="display-section" data-id='<%=savedAquariums[i]._id%>'>
 
@@ -392,7 +398,7 @@
 
               <div class="display-half">
                 <div class="info-half">
-                  <div style="display:flex; width:100%; justify-content:space-between;">
+                  <div class="display-name-user">
                     <h2 class="display-header"><%= savedAquariums[i].name %></h2>
                     <a href="/profile/<%= savedAquariums[i].username %>" class="profile-link"><%= savedAquariums[i].username %></a>
                   </div>
