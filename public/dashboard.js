@@ -25,6 +25,8 @@ function showShare() {
 //open shared
 shared.addEventListener('click', showShared);
 
+//funciton to show the shared aquariums
+
 function showShared() {
   sharedsec.classList.toggle('hidden');
   sharesec.classList.add('hidden');
