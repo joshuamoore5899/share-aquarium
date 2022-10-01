@@ -18,6 +18,8 @@ function closeZoom() {
   }
 }
 
+//function to show filter box
+
 function showFilter() {
   try {
     const section = this.parentNode.parentNode.querySelector('#filter-section');
