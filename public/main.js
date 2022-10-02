@@ -124,6 +124,7 @@ Array.from(images).forEach((el)=> {
   el.addEventListener('click', changeMain)
 })
 
+//changes image in main pic spot
 function changeMain() {
   const imageURL = this.dataset.url;
   const mainPic = this.parentNode.parentNode.parentNode.parentNode.parentNode.querySelector('.main-pic img');
