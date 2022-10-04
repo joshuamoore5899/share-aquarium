@@ -16,7 +16,7 @@ const profileRoutes = require('./routes/profile');
 require('./config/passport')(passport);
 
 
-
+//connect to database
 connectDB();
 
 app.set('view engine', 'ejs');
