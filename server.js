@@ -19,6 +19,7 @@ require('./config/passport')(passport);
 //connect to database
 connectDB();
 
+//middleware
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
