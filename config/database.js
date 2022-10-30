@@ -11,4 +11,6 @@ const connectDB = async () => {
   }
 }
 
+//in cyclic all variable names need to be strings without the quotes
+
 module.exports = connectDB;
