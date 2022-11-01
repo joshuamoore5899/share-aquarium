@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const connectDB = async () => {
   try {
-    console.log('starting connection...');
+    console.log(process.env.DB_STRING);
     const conn = await mongoose.connect(process.env.DB_STRING, {
       useNewUrlParser: true,
       useUnifiedTopology: true,
