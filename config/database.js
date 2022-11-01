@@ -8,12 +8,6 @@ const connectDB = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
     })
-    .then(
-      app.listen(process.env.PORT, ()=> {
-        console.log('listening')
-        console.log(`Server is running on port ${process.env.PORT}`);
-      })
-    )
     console.log(`MongoDB Connected: ${conn.connection.host}`)
   } catch (err) {
     console.log('There it is')
