@@ -52,6 +52,7 @@ module.exports = {
       });
       res.redirect('/dashboard');
     } catch (err) {
+      res.redirect('/dashboard');
       console.error(err)
     }
   },
